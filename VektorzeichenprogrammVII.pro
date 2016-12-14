@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     draw.cpp \
     graphicsobjectmap.cpp \
     graphicsscene.cpp \
-    colorbutton.cpp
+    colorbutton.cpp \
+    drawingtoolselector.cpp \
+    colortoolselector.cpp
 
 HEADERS  += mainwindow.h \
     graphicsobject.h \
@@ -29,9 +31,13 @@ HEADERS  += mainwindow.h \
     draw.h \
     graphicsobjectmap.h \
     graphicsscene.h \
-    colorbutton.h
+    colorbutton.h \
+    drawingtoolselector.h \
+    colortoolselector.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    drawingtoolselector.ui \
+    colortoolselector.ui
 
 RESOURCES += \
     Images/selecttool.qrc
