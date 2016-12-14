@@ -22,8 +22,8 @@ MainWindow::MainWindow(QWidget *parent) :
     mygraphicobjects = new GraphicsObjectMap();
     myGraphicsscene = new GraphicsScene();
 
-    ui->pb_AddObject->setEnabled(false);
-    ui->groupBox_4->setEnabled(false);
+    //ui->pb_AddObject->setEnabled(false);
+    //ui->groupBox_4->setEnabled(false);
     //ui->groupBox_5->setEnabled(false);
     ui->graphicsView->setScene(myGraphicsscene);
 
