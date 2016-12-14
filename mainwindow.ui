@@ -110,15 +110,15 @@
          </widget>
         </item>
         <item row="5" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout">
-          <item>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="1" column="0">
            <widget class="QPushButton" name="pb_returnobj">
             <property name="text">
              <string>Return Objects</string>
             </property>
            </widget>
           </item>
-          <item>
+          <item row="1" column="1">
            <widget class="QPushButton" name="pb_AddObject">
             <property name="text">
              <string>AddObject</string>
@@ -127,6 +127,12 @@
              <bool>false</bool>
             </property>
            </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="DrawingToolSelector" name="widget" native="true"/>
+          </item>
+          <item row="0" column="1">
+           <widget class="ColorToolSelector" name="widget_2" native="true"/>
           </item>
          </layout>
         </item>
@@ -152,7 +158,7 @@
      <x>0</x>
      <y>0</y>
      <width>924</width>
-     <height>19</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
@@ -167,6 +173,20 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>DrawingToolSelector</class>
+   <extends>QWidget</extends>
+   <header location="global">drawingtoolselector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ColorToolSelector</class>
+   <extends>QWidget</extends>
+   <header location="global">colortoolselector.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
