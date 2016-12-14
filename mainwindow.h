@@ -28,17 +28,17 @@ private slots:
 
     void on_pb_AddObject_clicked();
 
-    void on_pb_circle_clicked();
+//    void on_pb_circle_clicked();
 
-    void on_pb_rect_clicked();
+//    void on_pb_rect_clicked();
 
-    void on_pb_select_clicked();
+//    void on_pb_select_clicked();
 
     void on_pb_returnobj_clicked();
 
-    void on_pb_fill_color_clicked();
+//    void on_pb_fill_color_clicked();
 
-    void on_pb_border_color_clicked();
+//    void on_pb_border_color_clicked();
 
 private:
     Ui::MainWindow *ui;

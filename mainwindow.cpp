@@ -24,15 +24,15 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->pb_AddObject->setEnabled(false);
     ui->groupBox_4->setEnabled(false);
-    ui->groupBox_5->setEnabled(false);
+    //ui->groupBox_5->setEnabled(false);
     ui->graphicsView->setScene(myGraphicsscene);
 
     myDraw1->setT(Draw::selectTool);
     myDraw1->setFillColor(Qt::red);
     myDraw1->setBorderColor(Qt::red);
     ui->graphicsView->setSceneRect(0,0,700,650);
-    ui->pb_fill_color->setStyleSheet("background-color: rgb(255, 0, 0)");
-    ui->pb_border_color->setStyleSheet("background-color: rgb(255, 0, 0)");
+    //ui->pb_fill_color->setStyleSheet("background-color: rgb(255, 0, 0)");
+    //ui->pb_border_color->setStyleSheet("background-color: rgb(255, 0, 0)");
 }
 
 MainWindow::~MainWindow()
@@ -81,32 +81,32 @@ void MainWindow::on_pb_AddObject_clicked()
     }
 }
 
-void MainWindow::on_pb_circle_clicked()
-{
-    myDraw1->setT(Draw::circleTool);
-    ui->pb_AddObject->setEnabled(true);
-    ui->groupBox_4->setEnabled(true);
-    ui->groupBox_5->setEnabled(true);
+//void MainWindow::on_pb_circle_clicked()
+//{
+//    myDraw1->setT(Draw::circleTool);
+//    ui->pb_AddObject->setEnabled(true);
+//    ui->groupBox_4->setEnabled(true);
+//    ui->groupBox_5->setEnabled(true);
 
-}
+//}
 
-void MainWindow::on_pb_rect_clicked()
-{
-    myDraw1->setT(Draw::rectTool);
-    ui->pb_AddObject->setEnabled(true);
-    ui->groupBox_4->setEnabled(true);
-    ui->groupBox_5->setEnabled(true);
-}
+//void MainWindow::on_pb_rect_clicked()
+//{
+//    myDraw1->setT(Draw::rectTool);
+//    ui->pb_AddObject->setEnabled(true);
+//    ui->groupBox_4->setEnabled(true);
+//    ui->groupBox_5->setEnabled(true);
+//}
 
 
-void MainWindow::on_pb_select_clicked()
-{
-    myDraw1->setT(Draw::selectTool);
-    ui->pb_AddObject->setEnabled(false);
-    ui->groupBox_4->setEnabled(false);
-    ui->groupBox_5->setEnabled(false);
+//void MainWindow::on_pb_select_clicked()
+//{
+//    myDraw1->setT(Draw::selectTool);
+//    ui->pb_AddObject->setEnabled(false);
+//    ui->groupBox_4->setEnabled(false);
+//    ui->groupBox_5->setEnabled(false);
 
-}
+//}
 
 void MainWindow::on_pb_returnobj_clicked()
 {
@@ -116,27 +116,27 @@ void MainWindow::on_pb_returnobj_clicked()
 /**
  * @brief Colordialog for fillcolor, writes new color to draw object, changes button color to picked color
  */
-void MainWindow::on_pb_fill_color_clicked()
-{
-    QColor newColor = QColorDialog::getColor(myDraw1->getFillColor(), this, "Select fill Color", QColorDialog::ShowAlphaChannel);
-    if (newColor.isValid())
-    {
-        ui->pb_fill_color->setColor(newColor);
-        myDraw1->setFillColor(newColor);
+//void MainWindow::on_pb_fill_color_clicked()
+//{
+//    QColor newColor = QColorDialog::getColor(myDraw1->getFillColor(), this, "Select fill Color", QColorDialog::ShowAlphaChannel);
+//    if (newColor.isValid())
+//    {
+//        ui->pb_fill_color->setColor(newColor);
+//        myDraw1->setFillColor(newColor);
 
-    }
-}
+//    }
+//}
 
-/**
- * @brief Colordialog for bordercolor, writes new color to draw object, changes button color to picked color
- */
-void MainWindow::on_pb_border_color_clicked()
-{
-    QColor newColor = QColorDialog::getColor(myDraw1->getBorderColor(), this, "Select border Color", QColorDialog::ShowAlphaChannel);
-    if (newColor.isValid())
-    {
-        ui->pb_border_color->setColor(newColor);
-        myDraw1->setBorderColor(newColor);
+///**
+// * @brief Colordialog for bordercolor, writes new color to draw object, changes button color to picked color
+// */
+//void MainWindow::on_pb_border_color_clicked()
+//{
+//    QColor newColor = QColorDialog::getColor(myDraw1->getBorderColor(), this, "Select border Color", QColorDialog::ShowAlphaChannel);
+//    if (newColor.isValid())
+//    {
+//        ui->pb_border_color->setColor(newColor);
+//        myDraw1->setBorderColor(newColor);
 
-    }
-}
+//    }
+//}
