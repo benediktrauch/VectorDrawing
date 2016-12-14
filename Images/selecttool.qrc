@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>ic_pan_tool_black_48dp.png</file>
+        <file>ic_add_box_black_48dp.png</file>
+        <file>ic_add_circle_black_48dp.png</file>
+        <file>ic_fiber_manual_record_black_48dp.png</file>
+        <file>ic_stop_black_48dp.png</file>
+    </qresource>
+</RCC>
