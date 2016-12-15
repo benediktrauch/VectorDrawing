@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include<draw.h>
+
 namespace Ui {
 class DrawingToolSelector;
 }
@@ -15,8 +17,25 @@ public:
     explicit DrawingToolSelector(QWidget *parent = 0);
     ~DrawingToolSelector();
 
+    Draw::Tool activeDrawingTool() const;
+
+signals:
+    void activeDrawingToolChanged(Draw::Tool activeDrawingTool);
+
+private slots:
+    void setActiveDrawingTool(const Draw::Tool &activeDrawingTool);
+
+    void on_pb_select_clicked();
+
+    void on_pb_circle_clicked();
+
+    void on_pb_rect_clicked();
+
 private:
     Ui::DrawingToolSelector *ui;
+
+protected:
+    Draw::Tool m_activeDrawingTool;
 };
 
 #endif // DRAWINGTOOLSELECTOR_H

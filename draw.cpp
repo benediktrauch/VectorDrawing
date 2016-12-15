@@ -53,5 +53,14 @@ Draw::Tool Draw::getT() const
  */
 void Draw::setT(const Draw::Tool &t)
 {
-    _t = t;
+
+    if (_t != t) {
+        _t = t;
+        emit activeDrawingToolChanged(_t);
+
+    }
+
+
 }
+
+

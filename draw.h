@@ -13,15 +13,18 @@ public:
     QColor getBorderColor() const;
     QColor getFillColor() const;
 
-    enum Tool {selectTool, circleTool, rectTool, noTool}; ///< Tool List
+    enum Tool {selectTool, circleTool, rectTool}; ///< Tool List
     Draw::Tool getT() const;
 
 signals:
+    void activeDrawingToolChanged(Draw::Tool activeDrawingTool);
+
 
 public slots:
     void setBorderColor(const QColor &value);
     void setFillColor(const QColor &value);
     void setT(const Draw::Tool &t);
+
 
 private:
     QColor borderColor;
