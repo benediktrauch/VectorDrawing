@@ -15,12 +15,8 @@ DrawingToolSelector::~DrawingToolSelector()
 
 void DrawingToolSelector::on_pb_select_clicked()
 {
-    if(m_activeDrawingTool != Draw::selectTool){
-        this->setActiveDrawingTool(Draw::selectTool);
-        emit activeDrawingToolChanged(m_activeDrawingTool);
-
-
-    }
+    this->setActiveDrawingTool(Draw::selectTool);
+    emit activeDrawingToolChanged(m_activeDrawingTool);
 }
 
 void DrawingToolSelector::on_pb_circle_clicked()
@@ -42,5 +38,27 @@ Draw::Tool DrawingToolSelector::activeDrawingTool() const
 
 void DrawingToolSelector::setActiveDrawingTool(const Draw::Tool &activeDrawingTool)
 {
-    m_activeDrawingTool = activeDrawingTool;
-}
+
+    if (m_activeDrawingTool != activeDrawingTool) {
+        ui->pb_select->setChecked(false);
+        ui->pb_circle->setChecked(false);
+        ui->pb_rect->setChecked(false);
+
+        switch (activeDrawingTool) {
+        case Draw::selectTool:
+            ui->pb_select->setChecked(true);
+            break;
+        case Draw::circleTool:
+            ui->pb_circle->setChecked(true);
+            break;
+        case Draw::rectTool:
+            ui->pb_rect->setChecked(true);
+            break;
+        }
+
+        m_activeDrawingTool = activeDrawingTool;
+    }
+
+    }
+
+
