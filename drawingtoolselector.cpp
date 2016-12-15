@@ -15,19 +15,19 @@ DrawingToolSelector::~DrawingToolSelector()
 
 void DrawingToolSelector::on_pb_select_clicked()
 {
-    m_activeDrawingTool = activeDrawingTool;
+    this->setActiveDrawingTool(Draw::selectTool);
     emit activeDrawingToolChanged(m_activeDrawingTool);
 }
 
 void DrawingToolSelector::on_pb_circle_clicked()
 {
-    m_activeDrawingTool = activeDrawingTool;
+    this->setActiveDrawingTool(Draw::circleTool);
     emit activeDrawingToolChanged(m_activeDrawingTool);
 }
 
 void DrawingToolSelector::on_pb_rect_clicked()
 {
-    m_activeDrawingTool = activeDrawingTool;
+    this->setActiveDrawingTool(Draw::rectTool);
     emit activeDrawingToolChanged(m_activeDrawingTool);
 }
 
