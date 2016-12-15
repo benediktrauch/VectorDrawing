@@ -19,6 +19,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     myDraw1 = new Draw();
 
+
+    connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myDraw1, SLOT(setActiveDrawingTool(Draw::Tool)));
+    connect(myDraw1, SIGNAL(activeDrawingToolChanged(Draw::Tool)), ui->drawingToolSelector, SLOT(setActiveDrawingTool(Draw::Tool)));
+
+
+
     mygraphicobjects = new GraphicsObjectMap();
     myGraphicsscene = new GraphicsScene();
 
