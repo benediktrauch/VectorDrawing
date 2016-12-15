@@ -15,19 +15,19 @@ DrawingToolSelector::~DrawingToolSelector()
 
 void DrawingToolSelector::on_pb_select_clicked()
 {
-    this->setActiveDrawingTool(Draw::selectTool);
+    m_activeDrawingTool = activeDrawingTool;
     emit activeDrawingToolChanged(m_activeDrawingTool);
 }
 
 void DrawingToolSelector::on_pb_circle_clicked()
 {
-    this->setActiveDrawingTool(Draw::circleTool);
+    m_activeDrawingTool = activeDrawingTool;
     emit activeDrawingToolChanged(m_activeDrawingTool);
 }
 
 void DrawingToolSelector::on_pb_rect_clicked()
 {
-    this->setActiveDrawingTool(Draw::rectTool);
+    m_activeDrawingTool = activeDrawingTool;
     emit activeDrawingToolChanged(m_activeDrawingTool);
 }
 
@@ -57,6 +57,7 @@ void DrawingToolSelector::setActiveDrawingTool(const Draw::Tool &activeDrawingTo
         }
 
         m_activeDrawingTool = activeDrawingTool;
+        emit activeDrawingToolChanged(m_activeDrawingTool);
     }
 
     }
