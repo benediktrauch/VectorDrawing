@@ -37,7 +37,12 @@ QColor Draw::getFillColor() const
  */
 void Draw::setFillColor(const QColor &value)
 {
-    fillColor = value;
+    if (value != fillColor) {
+
+        qDebug("Blubb setfillcolor");
+        fillColor = value;
+        emit activeFillColorToolChanged(fillColor);
+    }
 }
 /**
  * @brief Draw::getT
@@ -53,7 +58,7 @@ Draw::Tool Draw::getT() const
  */
 void Draw::setT(const Draw::Tool &t)
 {
-
+    qDebug("setT test");
     if (_t != t) {
         _t = t;
         emit activeDrawingToolChanged(_t);

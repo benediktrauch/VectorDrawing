@@ -18,6 +18,8 @@ public:
 
 signals:
     void activeDrawingToolChanged(Draw::Tool activeDrawingTool);
+    void activeFillColorToolChanged(QColor fillColor);
+
 
 
 public slots:

@@ -27,6 +27,7 @@ QColor ColorButton::color() const
 void ColorButton::setColor(const QColor &color)
 {
     m_color = color;
+    qDebug("neue farbe fur button");
     //repaint();
 }
 

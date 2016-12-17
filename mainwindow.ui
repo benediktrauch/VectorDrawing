@@ -132,7 +132,7 @@
            <widget class="DrawingToolSelector" name="drawingToolSelector" native="true"/>
           </item>
           <item row="0" column="1">
-           <widget class="ColorToolSelector" name="widget_2" native="true"/>
+           <widget class="ColorToolSelector" name="colorToolSelector" native="true"/>
           </item>
          </layout>
         </item>

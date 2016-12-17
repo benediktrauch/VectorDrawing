@@ -5,6 +5,7 @@
 #include <draw.h>
 #include <QtDebug>
 #include <QColorDialog>
+#include <QColor>
 
 
 /**
@@ -23,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myDraw1, SLOT(setT(Draw::Tool)));
     connect(myDraw1, SIGNAL(activeDrawingToolChanged(Draw::Tool)), ui->drawingToolSelector, SLOT(setActiveDrawingTool(Draw::Tool)));
 
+    //connect(myDraw1, SIGNAL(activeFillColorToolChanged(QColor)), ui->colorToolSelector, SLOT(setFillColor(QColor)));
+    connect(ui->colorToolSelector, SIGNAL(activeFillColorToolChanged(QColor)), myDraw1, SLOT(setFillColor(QColor)));
 
 
     mygraphicobjects = new GraphicsObjectMap();
@@ -34,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setScene(myGraphicsscene);
 
     myDraw1->setT(Draw::selectTool);
-    myDraw1->setFillColor(Qt::red);
+    myDraw1->setFillColor(QColor(255, 0, 0, 1));
     myDraw1->setBorderColor(Qt::red);
     ui->graphicsView->setSceneRect(0,0,700,650);
     //ui->pb_fill_color->setStyleSheet("background-color: rgb(255, 0, 0)");
