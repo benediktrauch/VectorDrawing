@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     myDraw1 = new Draw();
 
 
-    connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myDraw1, SLOT(setActiveDrawingTool(Draw::Tool)));
+    connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myDraw1, SLOT(setT(Draw::Tool)));
     connect(myDraw1, SIGNAL(activeDrawingToolChanged(Draw::Tool)), ui->drawingToolSelector, SLOT(setActiveDrawingTool(Draw::Tool)));
 
 
