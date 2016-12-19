@@ -18,6 +18,9 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+signals:
+    void activeDrawingToolChanged(Draw::Tool activeDrawingTool);
+
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -40,8 +43,17 @@ private slots:
 
 //    void on_pb_border_color_clicked();
 
+    void on_actionCircle_Tool_triggered();
+
+    void on_actionExit_triggered();
+
+    void on_actionRectangle_Tool_triggered();
+
+    void on_actionSelect_Tool_triggered();
+
 public slots:
     void generateNewUI(Draw::Tool selectedTool);
+    void setActiveDrawingTool(Draw::Tool activeDrawingTool);
 
 
 private:

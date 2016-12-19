@@ -20,12 +20,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     myDraw1 = new Draw();
 
+    connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), this, SLOT(setActiveDrawingTool(Draw::Tool)));
+    connect(this, SIGNAL(activeDrawingToolChanged(Draw::Tool)), ui->drawingToolSelector, SLOT(setActiveDrawingTool(Draw::Tool)));
 
-    connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myDraw1, SLOT(setT(Draw::Tool)));
-    connect(myDraw1, SIGNAL(activeDrawingToolChanged(Draw::Tool)), ui->drawingToolSelector, SLOT(setActiveDrawingTool(Draw::Tool)));
+
     connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), this, SLOT(generateNewUI(Draw::Tool)));
 
-    //connect(myDraw1, SIGNAL(activeFillColorToolChanged(QColor)), ui->colorToolSelector, SLOT(fillColor(QColor)));
     connect(ui->colorToolSelector, SIGNAL(activeFillColorToolChanged(QColor)), myDraw1, SLOT(setFillColor(QColor)));
     connect(ui->colorToolSelector, SIGNAL(activeBorderColorToolChanged(QColor)), myDraw1, SLOT(setBorderColor(QColor)));
 
@@ -103,6 +103,33 @@ void MainWindow::generateNewUI(Draw::Tool selectedTool)
     }
 }
 
+void MainWindow::setActiveDrawingTool(Draw::Tool activeDrawingTool)
+{
+    if (activeDrawingTool != myDraw1->getT()) {
+        myDraw1->setT(activeDrawingTool);
+        ui->actionSelect_Tool->setChecked(false);
+        ui->actionCircle_Tool->setChecked(false);
+        ui->actionRectangle_Tool->setChecked(false);
+
+        switch (activeDrawingTool) {
+        case Draw::selectTool:
+            ui->actionSelect_Tool->setChecked(true);
+            break;
+        case Draw::circleTool:
+            ui->actionCircle_Tool->setChecked(true);
+            break;
+        case Draw::rectTool:
+            ui->actionRectangle_Tool->setChecked(true);
+            break;
+        }
+
+
+
+        emit activeDrawingToolChanged(activeDrawingTool);
+
+    }
+}
+
 
 //void MainWindow::on_pb_circle_clicked()
 //{
@@ -163,3 +190,32 @@ void MainWindow::generateNewUI(Draw::Tool selectedTool)
 
 //    }
 //}
+
+void MainWindow::on_actionCircle_Tool_triggered()
+{
+    ui->actionSelect_Tool->setChecked(false);
+    ui->actionRectangle_Tool->setChecked(false);
+    myDraw1->setT(Draw::circleTool);
+    emit activeDrawingToolChanged(myDraw1->getT());
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    exit(0);
+}
+
+void MainWindow::on_actionRectangle_Tool_triggered()
+{
+    ui->actionSelect_Tool->setChecked(false);
+    ui->actionCircle_Tool->setChecked(false);
+    myDraw1->setT(Draw::rectTool);
+    emit activeDrawingToolChanged(myDraw1->getT());
+}
+
+void MainWindow::on_actionSelect_Tool_triggered()
+{
+    ui->actionCircle_Tool->setChecked(false);
+    ui->actionRectangle_Tool->setChecked(false);
+    myDraw1->setT(Draw::selectTool);
+    emit activeDrawingToolChanged(myDraw1->getT());
+}
