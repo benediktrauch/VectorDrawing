@@ -6,7 +6,6 @@ DrawingToolSelector::DrawingToolSelector(QWidget *parent) :
     ui(new Ui::DrawingToolSelector)
 {
     ui->setupUi(this);
-    //connect(&m_activeDrawingTool, SIGNAL(activeDrawingToolChanged(Draw::Tool)), , SLOT(setActiveDrawingTool(Draw::Tool)));
 }
 
 DrawingToolSelector::~DrawingToolSelector()
@@ -39,7 +38,6 @@ Draw::Tool DrawingToolSelector::activeDrawingTool() const
 
 void DrawingToolSelector::setActiveDrawingTool(const Draw::Tool &activeDrawingTool)
 {
-    qDebug("Blubbern beim malen");
 
     if (m_activeDrawingTool != activeDrawingTool) {
         ui->pb_select->setChecked(false);

@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myDraw1, SLOT(setT(Draw::Tool)));
     connect(myDraw1, SIGNAL(activeDrawingToolChanged(Draw::Tool)), ui->drawingToolSelector, SLOT(setActiveDrawingTool(Draw::Tool)));
 
-    //connect(myDraw1, SIGNAL(activeFillColorToolChanged(QColor)), ui->colorToolSelector, SLOT(setFillColor(QColor)));
+    //connect(myDraw1, SIGNAL(activeFillColorToolChanged(QColor)), ui->colorToolSelector, SLOT(fillColor(QColor)));
     connect(ui->colorToolSelector, SIGNAL(activeFillColorToolChanged(QColor)), myDraw1, SLOT(setFillColor(QColor)));
 
 

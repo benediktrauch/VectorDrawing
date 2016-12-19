@@ -28,15 +28,13 @@ private:
 
 protected:
     Draw *m_draw;
-    QColor m_fillColor;
-    QColor m_borderColor;
 
 private slots:
     void on_pb_border_color_clicked();
     void on_pb_fill_color_clicked();
 
 public slots:
-    void setFillColor(const QColor &fillColor);
+    //void setFillColor(const QColor &fillColor);
 
 };
 
