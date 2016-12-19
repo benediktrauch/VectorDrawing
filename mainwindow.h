@@ -34,11 +34,15 @@ private slots:
 
 //    void on_pb_select_clicked();
 
-    void on_pb_returnobj_clicked();
+    //void on_pb_returnobj_clicked();
 
 //    void on_pb_fill_color_clicked();
 
 //    void on_pb_border_color_clicked();
+
+public slots:
+    void generateNewUI(Draw::Tool selectedTool);
+
 
 private:
     Ui::MainWindow *ui;

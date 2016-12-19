@@ -17,6 +17,7 @@ void DrawingToolSelector::on_pb_select_clicked()
 {
     this->setActiveDrawingTool(Draw::selectTool);
     emit activeDrawingToolChanged(m_activeDrawingTool);
+
 }
 
 void DrawingToolSelector::on_pb_circle_clicked()
@@ -60,6 +61,6 @@ void DrawingToolSelector::setActiveDrawingTool(const Draw::Tool &activeDrawingTo
         emit activeDrawingToolChanged(m_activeDrawingTool);
     }
 
-    }
+}
 
 

@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myDraw1, SLOT(setT(Draw::Tool)));
     connect(myDraw1, SIGNAL(activeDrawingToolChanged(Draw::Tool)), ui->drawingToolSelector, SLOT(setActiveDrawingTool(Draw::Tool)));
+    connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), this, SLOT(generateNewUI(Draw::Tool)));
 
     //connect(myDraw1, SIGNAL(activeFillColorToolChanged(QColor)), ui->colorToolSelector, SLOT(fillColor(QColor)));
     connect(ui->colorToolSelector, SIGNAL(activeFillColorToolChanged(QColor)), myDraw1, SLOT(setFillColor(QColor)));
@@ -32,9 +33,10 @@ MainWindow::MainWindow(QWidget *parent) :
     mygraphicobjects = new GraphicsObjectMap();
     myGraphicsscene = new GraphicsScene();
 
-    //ui->pb_AddObject->setEnabled(false);
-    //ui->groupBox_4->setEnabled(false);
-    //ui->groupBox_5->setEnabled(false);
+    ui->pb_AddObject->setEnabled(false);
+    ui->settingsBox->setEnabled(false);
+
+
     ui->graphicsView->setScene(myGraphicsscene);
 
     myDraw1->setT(Draw::selectTool);
@@ -90,6 +92,18 @@ void MainWindow::on_pb_AddObject_clicked()
     }
 }
 
+void MainWindow::generateNewUI(Draw::Tool selectedTool)
+{
+    if (selectedTool != Draw::selectTool) {
+        ui->settingsBox->setEnabled(true);
+        ui->pb_AddObject->setEnabled(true);
+    } else {
+        ui->settingsBox->setEnabled(false);
+        ui->pb_AddObject->setEnabled(false);
+    }
+}
+
+
 //void MainWindow::on_pb_circle_clicked()
 //{
 //    myDraw1->setT(Draw::circleTool);
@@ -117,10 +131,10 @@ void MainWindow::on_pb_AddObject_clicked()
 
 //}
 
-void MainWindow::on_pb_returnobj_clicked()
-{
-    mygraphicobjects->PrintObjects();
-}
+//void MainWindow::on_pb_returnobj_clicked()
+//{
+//    mygraphicobjects->PrintObjects();
+//}
 
 /**
  * @brief Colordialog for fillcolor, writes new color to draw object, changes button color to picked color
