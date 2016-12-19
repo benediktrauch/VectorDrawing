@@ -14,6 +14,7 @@ class ColorToolSelector : public QWidget
 
 signals:
     void activeFillColorToolChanged(QColor fillColor);
+    void activeBorderColorToolChanged(QColor fillColor);
 
 
 public:

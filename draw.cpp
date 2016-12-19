@@ -21,7 +21,10 @@ QColor Draw::getBorderColor() const
  */
 void Draw::setBorderColor(const QColor &value)
 {
-    borderColor = value;
+    if (value != borderColor) {
+        borderColor = value;
+        emit activeBorderColorToolChanged(borderColor);
+    }
 }
 /**
  * @brief Draw::getFillColor

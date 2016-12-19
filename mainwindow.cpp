@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //connect(myDraw1, SIGNAL(activeFillColorToolChanged(QColor)), ui->colorToolSelector, SLOT(fillColor(QColor)));
     connect(ui->colorToolSelector, SIGNAL(activeFillColorToolChanged(QColor)), myDraw1, SLOT(setFillColor(QColor)));
+    connect(ui->colorToolSelector, SIGNAL(activeBorderColorToolChanged(QColor)), myDraw1, SLOT(setBorderColor(QColor)));
 
 
     mygraphicobjects = new GraphicsObjectMap();
@@ -37,11 +38,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setScene(myGraphicsscene);
 
     myDraw1->setT(Draw::selectTool);
-    myDraw1->setFillColor(QColor(255, 0, 0, 1));
+    myDraw1->setFillColor(Qt::red);
     myDraw1->setBorderColor(Qt::red);
     ui->graphicsView->setSceneRect(0,0,700,650);
-    //ui->pb_fill_color->setStyleSheet("background-color: rgb(255, 0, 0)");
-    //ui->pb_border_color->setStyleSheet("background-color: rgb(255, 0, 0)");
+
 }
 
 MainWindow::~MainWindow()
