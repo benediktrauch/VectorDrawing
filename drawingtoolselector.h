@@ -22,8 +22,10 @@ public:
 signals:
     void activeDrawingToolChanged(Draw::Tool activeDrawingTool);
 
-private slots:
+public slots:
     void setActiveDrawingTool(const Draw::Tool &activeDrawingTool);
+
+private slots:
 
     void on_pb_select_clicked();
 

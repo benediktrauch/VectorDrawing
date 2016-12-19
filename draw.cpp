@@ -21,7 +21,10 @@ QColor Draw::getBorderColor() const
  */
 void Draw::setBorderColor(const QColor &value)
 {
-    borderColor = value;
+    if (value != borderColor) {
+        borderColor = value;
+        emit activeBorderColorToolChanged(borderColor);
+    }
 }
 /**
  * @brief Draw::getFillColor
@@ -37,7 +40,11 @@ QColor Draw::getFillColor() const
  */
 void Draw::setFillColor(const QColor &value)
 {
-    fillColor = value;
+    if (value != fillColor) {
+
+        fillColor = value;
+        emit activeFillColorToolChanged(fillColor);
+    }
 }
 /**
  * @brief Draw::getT
@@ -53,7 +60,6 @@ Draw::Tool Draw::getT() const
  */
 void Draw::setT(const Draw::Tool &t)
 {
-
     if (_t != t) {
         _t = t;
         emit activeDrawingToolChanged(_t);

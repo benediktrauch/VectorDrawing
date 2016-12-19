@@ -6,7 +6,6 @@ DrawingToolSelector::DrawingToolSelector(QWidget *parent) :
     ui(new Ui::DrawingToolSelector)
 {
     ui->setupUi(this);
-    //connect(&m_activeDrawingTool, SIGNAL(activeDrawingToolChanged(Draw::Tool)), , SLOT(setActiveDrawingTool(Draw::Tool)));
 }
 
 DrawingToolSelector::~DrawingToolSelector()

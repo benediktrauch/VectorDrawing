@@ -5,6 +5,7 @@
 #include <draw.h>
 #include <QtDebug>
 #include <QColorDialog>
+#include <QColor>
 
 
 /**
@@ -20,9 +21,12 @@ MainWindow::MainWindow(QWidget *parent) :
     myDraw1 = new Draw();
 
 
-    connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myDraw1, SLOT(setActiveDrawingTool(Draw::Tool)));
+    connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myDraw1, SLOT(setT(Draw::Tool)));
     connect(myDraw1, SIGNAL(activeDrawingToolChanged(Draw::Tool)), ui->drawingToolSelector, SLOT(setActiveDrawingTool(Draw::Tool)));
 
+    //connect(myDraw1, SIGNAL(activeFillColorToolChanged(QColor)), ui->colorToolSelector, SLOT(fillColor(QColor)));
+    connect(ui->colorToolSelector, SIGNAL(activeFillColorToolChanged(QColor)), myDraw1, SLOT(setFillColor(QColor)));
+    connect(ui->colorToolSelector, SIGNAL(activeBorderColorToolChanged(QColor)), myDraw1, SLOT(setBorderColor(QColor)));
 
 
     mygraphicobjects = new GraphicsObjectMap();
@@ -37,8 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
     myDraw1->setFillColor(Qt::red);
     myDraw1->setBorderColor(Qt::red);
     ui->graphicsView->setSceneRect(0,0,700,650);
-    //ui->pb_fill_color->setStyleSheet("background-color: rgb(255, 0, 0)");
-    //ui->pb_border_color->setStyleSheet("background-color: rgb(255, 0, 0)");
+
 }
 
 MainWindow::~MainWindow()
