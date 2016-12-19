@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>924</width>
-    <height>731</height>
+    <width>1026</width>
+    <height>778</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -150,13 +150,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>924</width>
-     <height>19</height>
+     <width>1026</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>&amp;File</string>
     </property>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
@@ -164,11 +164,12 @@
    </widget>
    <widget class="QMenu" name="menuTool">
     <property name="title">
-     <string>Tool</string>
+     <string>&amp;Tool</string>
     </property>
     <addaction name="actionSelect_Tool"/>
-    <addaction name="actionCircle_Tool"/>
+    <addaction name="separator"/>
     <addaction name="actionRectangle_Tool"/>
+    <addaction name="actionCircle_Tool"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuTool"/>
@@ -178,18 +179,24 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionOpen">
    <property name="text">
-    <string>Open</string>
+    <string>&amp;Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
   <action name="actionSave">
    <property name="text">
-    <string>Save</string>
+    <string>&amp;Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
    </property>
   </action>
   <action name="actionSelect_Tool">
@@ -199,38 +206,52 @@
    <property name="checked">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset resource="Images/selecttool.qrc">
+     <normaloff>:/new/prefix1/ic_pan_tool_black_48dp.png</normaloff>:/new/prefix1/ic_pan_tool_black_48dp.png</iconset>
+   </property>
    <property name="text">
-    <string>Select Tool</string>
+    <string>S&amp;elect Tool</string>
    </property>
    <property name="shortcut">
-    <string>Alt+S</string>
+    <string>Ctrl+Alt+S</string>
    </property>
   </action>
   <action name="actionCircle_Tool">
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/new/prefix1/ic_fiber_manual_record_black_48dp.png</normalon>
+    </iconset>
+   </property>
    <property name="text">
-    <string>Circle Tool</string>
+    <string>&amp;Circle Tool</string>
    </property>
    <property name="shortcut">
-    <string>Alt+C</string>
+    <string>Ctrl+Alt+C</string>
    </property>
   </action>
   <action name="actionRectangle_Tool">
    <property name="checkable">
     <bool>true</bool>
    </property>
+   <property name="icon">
+    <iconset>
+     <normalon>:/new/prefix1/ic_stop_black_48dp.png</normalon>
+    </iconset>
+   </property>
    <property name="text">
-    <string>Rectangle Tool</string>
+    <string>&amp;Rectangle Tool</string>
    </property>
    <property name="shortcut">
-    <string>Alt+R</string>
+    <string>Ctrl+Alt+R</string>
    </property>
   </action>
   <action name="actionExit">
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Exit</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
@@ -252,6 +273,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="Images/selecttool.qrc"/>
+ </resources>
  <connections/>
 </ui>

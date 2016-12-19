@@ -51,6 +51,10 @@ private slots:
 
     void on_actionSelect_Tool_triggered();
 
+    void on_actionOpen_triggered();
+
+    void on_actionSave_triggered();
+
 public slots:
     void generateNewUI(Draw::Tool selectedTool);
     void setActiveDrawingTool(Draw::Tool activeDrawingTool);

@@ -39,7 +39,6 @@ Draw::Tool DrawingToolSelector::activeDrawingTool() const
 
 void DrawingToolSelector::setActiveDrawingTool(const Draw::Tool &activeDrawingTool)
 {
-    qDebug("Hello again");
 
     if (m_activeDrawingTool != activeDrawingTool) {
         ui->pb_select->setChecked(false);

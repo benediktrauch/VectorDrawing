@@ -7,6 +7,12 @@
 #include <QColorDialog>
 #include <QColor>
 
+/**
+* Debug when "Save" or "Open" pressed
+* Icons for menus
+*/
+
+
 
 /**
  * @brief Creates new Window, binds Scene Object to graphicsView, sets background-color
@@ -218,4 +224,14 @@ void MainWindow::on_actionSelect_Tool_triggered()
     ui->actionRectangle_Tool->setChecked(false);
     myDraw1->setT(Draw::selectTool);
     emit activeDrawingToolChanged(myDraw1->getT());
+}
+
+void MainWindow::on_actionOpen_triggered()
+{
+    qDebug("Open File");
+}
+
+void MainWindow::on_actionSave_triggered()
+{
+    qDebug("Save File");
 }
