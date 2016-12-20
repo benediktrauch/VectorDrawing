@@ -31,18 +31,6 @@ private slots:
 
     void on_pb_AddObject_clicked();
 
-//    void on_pb_circle_clicked();
-
-//    void on_pb_rect_clicked();
-
-//    void on_pb_select_clicked();
-
-    //void on_pb_returnobj_clicked();
-
-//    void on_pb_fill_color_clicked();
-
-//    void on_pb_border_color_clicked();
-
     void on_actionCircle_Tool_triggered();
 
     void on_actionExit_triggered();
@@ -64,9 +52,6 @@ private:
     Ui::MainWindow *ui;
     Draw *myDraw1;
     GraphicsScene *myGraphicsscene;
-
-    //ColorButton *fillColorButton = new ColorButton();
-    //ColorButton *borderColorButton = new ColorButton();
 
     void runFillDebug();
     void runBorderDebug();
