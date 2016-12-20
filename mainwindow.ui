@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Admiral Illustrator</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Images/selecttool.qrc">
+    <normaloff>:/new/prefix1/AI_Application_Icon.ico</normaloff>:/new/prefix1/AI_Application_Icon.ico</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
