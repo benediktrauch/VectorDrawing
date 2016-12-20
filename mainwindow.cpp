@@ -8,14 +8,7 @@
 #include <QColor>
 
 /**
-* Debug when "Save" or "Open" pressed
-* Icons for menus
-*/
-
-
-
-/**
- * @brief Creates new Window, binds Scene Object to graphicsView, sets background-color
+ * @brief Creates new Window, binds Scene Object to graphicsView, sets background-color, connetion between tools/colors and mainwindow
  * @param parent
  */
 MainWindow::MainWindow(QWidget *parent) :
@@ -26,12 +19,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     myDraw1 = new Draw();
 
+    //Connections for tools
+    connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), this, SLOT(generateNewUI(Draw::Tool)));
     connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), this, SLOT(setActiveDrawingTool(Draw::Tool)));
     connect(this, SIGNAL(activeDrawingToolChanged(Draw::Tool)), ui->drawingToolSelector, SLOT(setActiveDrawingTool(Draw::Tool)));
 
-
-    connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), this, SLOT(generateNewUI(Draw::Tool)));
-
+    //Connection for colors
     connect(ui->colorToolSelector, SIGNAL(activeFillColorToolChanged(QColor)), myDraw1, SLOT(setFillColor(QColor)));
     connect(ui->colorToolSelector, SIGNAL(activeBorderColorToolChanged(QColor)), myDraw1, SLOT(setBorderColor(QColor)));
 
@@ -41,7 +34,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->pb_AddObject->setEnabled(false);
     ui->settingsBox->setEnabled(false);
-
 
     ui->graphicsView->setScene(myGraphicsscene);
 
@@ -98,6 +90,9 @@ void MainWindow::on_pb_AddObject_clicked()
     }
 }
 
+/**
+ * @brief Manipulates UI
+ */
 void MainWindow::generateNewUI(Draw::Tool selectedTool)
 {
     if (selectedTool != Draw::selectTool) {
@@ -109,6 +104,9 @@ void MainWindow::generateNewUI(Draw::Tool selectedTool)
     }
 }
 
+/**
+ * @brief Switching between active and inactive toolbuttons
+ */
 void MainWindow::setActiveDrawingTool(Draw::Tool activeDrawingTool)
 {
     if (activeDrawingTool != myDraw1->getT()) {
@@ -128,75 +126,24 @@ void MainWindow::setActiveDrawingTool(Draw::Tool activeDrawingTool)
             ui->actionRectangle_Tool->setChecked(true);
             break;
         }
-
-
-
         emit activeDrawingToolChanged(activeDrawingTool);
-
     }
 }
 
-
-//void MainWindow::on_pb_circle_clicked()
-//{
-//    myDraw1->setT(Draw::circleTool);
-//    ui->pb_AddObject->setEnabled(true);
-//    ui->groupBox_4->setEnabled(true);
-//    ui->groupBox_5->setEnabled(true);
-
-//}
-
-//void MainWindow::on_pb_rect_clicked()
-//{
-//    myDraw1->setT(Draw::rectTool);
-//    ui->pb_AddObject->setEnabled(true);
-//    ui->groupBox_4->setEnabled(true);
-//    ui->groupBox_5->setEnabled(true);
-//}
-
-
-//void MainWindow::on_pb_select_clicked()
-//{
-//    myDraw1->setT(Draw::selectTool);
-//    ui->pb_AddObject->setEnabled(false);
-//    ui->groupBox_4->setEnabled(false);
-//    ui->groupBox_5->setEnabled(false);
-
-//}
-
-//void MainWindow::on_pb_returnobj_clicked()
-//{
-//    mygraphicobjects->PrintObjects();
-//}
+/**
+ * @brief Manipulates select tool state in menubar
+ */
+void MainWindow::on_actionSelect_Tool_triggered()
+{
+    ui->actionCircle_Tool->setChecked(false);
+    ui->actionRectangle_Tool->setChecked(false);
+    myDraw1->setT(Draw::selectTool);
+    emit activeDrawingToolChanged(myDraw1->getT());
+}
 
 /**
- * @brief Colordialog for fillcolor, writes new color to draw object, changes button color to picked color
+ * @brief Manipulates circle tool state in menubar
  */
-//void MainWindow::on_pb_fill_color_clicked()
-//{
-//    QColor newColor = QColorDialog::getColor(myDraw1->getFillColor(), this, "Select fill Color", QColorDialog::ShowAlphaChannel);
-//    if (newColor.isValid())
-//    {
-//        ui->pb_fill_color->setColor(newColor);
-//        myDraw1->setFillColor(newColor);
-
-//    }
-//}
-
-///**
-// * @brief Colordialog for bordercolor, writes new color to draw object, changes button color to picked color
-// */
-//void MainWindow::on_pb_border_color_clicked()
-//{
-//    QColor newColor = QColorDialog::getColor(myDraw1->getBorderColor(), this, "Select border Color", QColorDialog::ShowAlphaChannel);
-//    if (newColor.isValid())
-//    {
-//        ui->pb_border_color->setColor(newColor);
-//        myDraw1->setBorderColor(newColor);
-
-//    }
-//}
-
 void MainWindow::on_actionCircle_Tool_triggered()
 {
     ui->actionSelect_Tool->setChecked(false);
@@ -205,24 +152,14 @@ void MainWindow::on_actionCircle_Tool_triggered()
     emit activeDrawingToolChanged(myDraw1->getT());
 }
 
-void MainWindow::on_actionExit_triggered()
-{
-    exit(0);
-}
-
+/**
+ * @brief Manipulates rectangle tool state in menubar
+ */
 void MainWindow::on_actionRectangle_Tool_triggered()
 {
     ui->actionSelect_Tool->setChecked(false);
     ui->actionCircle_Tool->setChecked(false);
     myDraw1->setT(Draw::rectTool);
-    emit activeDrawingToolChanged(myDraw1->getT());
-}
-
-void MainWindow::on_actionSelect_Tool_triggered()
-{
-    ui->actionCircle_Tool->setChecked(false);
-    ui->actionRectangle_Tool->setChecked(false);
-    myDraw1->setT(Draw::selectTool);
     emit activeDrawingToolChanged(myDraw1->getT());
 }
 
@@ -234,4 +171,9 @@ void MainWindow::on_actionOpen_triggered()
 void MainWindow::on_actionSave_triggered()
 {
     qDebug("Save File");
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    exit(0);
 }
