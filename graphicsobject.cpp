@@ -1,5 +1,7 @@
 #include "graphicsobject.h"
 #include <QObject>
+#include <iostream>
+#include <QDebug>
 
 unsigned long GraphicsObject::m_graphicsObjectCounter = 0;
 

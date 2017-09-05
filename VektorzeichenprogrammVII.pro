@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     graphicsscene.cpp \
     colorbutton.cpp \
     drawingtoolselector.cpp \
-    colortoolselector.cpp
+    colortoolselector.cpp \
+    roomgroundplan.cpp
 
 HEADERS  += mainwindow.h \
     graphicsobject.h \
@@ -33,7 +34,8 @@ HEADERS  += mainwindow.h \
     graphicsscene.h \
     colorbutton.h \
     drawingtoolselector.h \
-    colortoolselector.h
+    colortoolselector.h \
+    roomgroundplan.h
 
 FORMS    += mainwindow.ui \
     drawingtoolselector.ui \

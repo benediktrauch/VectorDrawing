@@ -1,11 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "qgraphicsscene.h"
 
 #include <iostream>
+#include <QString>
 #include <draw.h>
 #include <QtDebug>
 #include <QColorDialog>
 #include <QColor>
+#include <QGraphicsSceneMouseEvent>
 
 /**
  * @brief Creates new Window, binds Scene Object to graphicsView, sets background-color, connetion between tools/colors and mainwindow
@@ -15,7 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
-
     ui->setupUi(this);
     myDraw1 = new Draw();
 
@@ -27,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //Connection for colors
     connect(ui->colorToolSelector, SIGNAL(activeFillColorToolChanged(QColor)), myDraw1, SLOT(setFillColor(QColor)));
     connect(ui->colorToolSelector, SIGNAL(activeBorderColorToolChanged(QColor)), myDraw1, SLOT(setBorderColor(QColor)));
-
 
     mygraphicobjects = new GraphicsObjectMap();
     myGraphicsscene = new GraphicsScene();
@@ -48,6 +49,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 /**
  * @brief Border Color debug message
  */
@@ -128,6 +130,12 @@ void MainWindow::setActiveDrawingTool(Draw::Tool activeDrawingTool)
         }
         emit activeDrawingToolChanged(activeDrawingTool);
     }
+}
+
+
+Draw *MainWindow::getMyDraw1() const
+{
+    return myDraw1;
 }
 
 /**

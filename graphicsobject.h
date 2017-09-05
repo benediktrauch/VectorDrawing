@@ -5,7 +5,7 @@
 #include <QString>
 #include <QGraphicsObject>
 #include <QGraphicsScene>
-
+#include <QGraphicsSceneMouseEvent>
 
 class GraphicsObject : public QObject
 {
@@ -36,6 +36,8 @@ public:
 signals:
 
 public slots:
+
+protected:
 
 private:
     QString m_name; ///< Graphics Object Name

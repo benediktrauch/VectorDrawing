@@ -26,6 +26,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    Draw *getMyDraw1() const;
 
 private slots:
 
