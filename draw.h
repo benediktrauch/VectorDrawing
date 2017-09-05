@@ -13,7 +13,7 @@ public:
     QColor getBorderColor() const;
     QColor getFillColor() const;
 
-    enum Tool {selectTool, circleTool, rectTool}; ///< Tool List
+    enum Tool {selectTool, lineTool, circleTool, rectTool}; ///< Tool List
     Draw::Tool getT() const;
 
 signals:

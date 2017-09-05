@@ -11,6 +11,8 @@
 GraphicsScene::GraphicsScene(QObject *parent):
     QGraphicsScene(parent)
 {
+    lineToolActive = new bool;
+    *lineToolActive = false;
     myGroundplan = new RoomGroundplan();
     this->addItem(myGroundplan);
 
@@ -21,6 +23,19 @@ GraphicsScene::GraphicsScene(QObject *parent):
 GraphicsScene::~GraphicsScene()
 {
     QGraphicsScene(parent);
+}
+
+void GraphicsScene::setActiveDrawingTool(const Draw::Tool &activeDrawingTool)
+{
+    if(activeDrawingTool == Draw::lineTool)
+    {
+        *lineToolActive = true;
+    }
+    else
+    {
+        *lineToolActive = false;
+    }
+
 }
 
 QPointF GraphicsScene::getMyPoint() const
@@ -61,42 +76,42 @@ void GraphicsScene::createGrid()
 
 void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
-        if (mouseEvent->button() == Qt::LeftButton)
+    if (mouseEvent->button() == Qt::LeftButton)
+    {
+        double rad = 1;
+        QPointF pt = mouseEvent->scenePos();
+
+        int myPtX = pt.x();
+        int myPtY = pt.y();
+
+        if(myPtX % 10 < 5){
+            myPtX = (pt.x()-(myPtX % 10));
+        } else {
+            myPtX = (pt.x()+(10 - myPtX % 10));
+        }
+        if(myPtY % 10 < 5){
+            myPtY = (pt.y()-(myPtY % 10));
+        } else {
+            myPtY = (pt.y()+(10 - myPtY % 10));
+        }
+
+        pt.setX(myPtX);
+        pt.setY(myPtY);
+
+        if(this->getMyPoint().x() != 0 && this->getMyPoint().y() != 0)
         {
-            double rad = 1;
-            QPointF pt = mouseEvent->scenePos();
-
-            int myPtX = pt.x();
-            int myPtY = pt.y();
-
-            if(myPtX % 10 < 5){
-                myPtX = (pt.x()-(myPtX % 10));
-            } else {
-                myPtX = (pt.x()+(10 - myPtX % 10));
-            }
-            if(myPtY % 10 < 5){
-                myPtY = (pt.y()-(myPtY % 10));
-            } else {
-                myPtY = (pt.y()+(10 - myPtY % 10));
-            }
-
-            pt.setX(myPtX);
-            pt.setY(myPtY);
-
-            if(this->getMyPoint().x() == pt.x() && this->getMyPoint().y() == pt.y())
-            {
-                pt.setX(0);
-                pt.setY(0);
-
-            } else if(this->getMyPoint().x() != 0 && this->getMyPoint().y() != 0)
-            {
+            if(*lineToolActive){
                 myGroundplan->addLineToGroup(this->getMyPoint(), pt);
+
             }
+        }
 
+        if(*lineToolActive){
             this->setMyPoint(pt);
-
             this->addEllipse(myPtX-rad, myPtY-rad, rad*2.0, rad*2.0,QPen(), QBrush(Qt::SolidPattern));
         }
-        QGraphicsScene::mousePressEvent(mouseEvent);
+        emit newPointSelected(pt);
+    }
+    QGraphicsScene::mousePressEvent(mouseEvent);
 }
 

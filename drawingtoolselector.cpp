@@ -20,6 +20,12 @@ void DrawingToolSelector::on_pb_select_clicked()
 
 }
 
+void DrawingToolSelector::on_pb_line_clicked()
+{
+    this->setActiveDrawingTool(Draw::lineTool);
+    emit activeDrawingToolChanged(m_activeDrawingTool);
+}
+
 void DrawingToolSelector::on_pb_circle_clicked()
 {
     this->setActiveDrawingTool(Draw::circleTool);
@@ -49,6 +55,9 @@ void DrawingToolSelector::setActiveDrawingTool(const Draw::Tool &activeDrawingTo
         case Draw::selectTool:
             ui->pb_select->setChecked(true);
             break;
+        case Draw::lineTool:
+            ui->pb_line->setChecked(true);
+            break;
         case Draw::circleTool:
             ui->pb_circle->setChecked(true);
             break;
@@ -62,5 +71,6 @@ void DrawingToolSelector::setActiveDrawingTool(const Draw::Tool &activeDrawingTo
     }
 
 }
+
 
 

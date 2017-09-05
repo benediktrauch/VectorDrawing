@@ -21,6 +21,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     myDraw1 = new Draw();
 
+    mygraphicobjects = new GraphicsObjectMap();
+    myGraphicsscene = new GraphicsScene();
+
     //Connections for tools
     connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), this, SLOT(generateNewUI(Draw::Tool)));
     connect(ui->drawingToolSelector, SIGNAL(activeDrawingToolChanged(Draw::Tool)), this, SLOT(setActiveDrawingTool(Draw::Tool)));
@@ -30,8 +33,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->colorToolSelector, SIGNAL(activeFillColorToolChanged(QColor)), myDraw1, SLOT(setFillColor(QColor)));
     connect(ui->colorToolSelector, SIGNAL(activeBorderColorToolChanged(QColor)), myDraw1, SLOT(setBorderColor(QColor)));
 
-    mygraphicobjects = new GraphicsObjectMap();
-    myGraphicsscene = new GraphicsScene();
+    connect(myGraphicsscene, SIGNAL(newPointSelected(QPointF)), this, SLOT(setSelectedPoint(QPointF)));
+    connect(this, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myGraphicsscene, SLOT(setActiveDrawingTool(Draw::Tool)));
+
 
     ui->pb_AddObject->setEnabled(false);
     ui->settingsBox->setEnabled(false);
@@ -56,6 +60,16 @@ MainWindow::~MainWindow()
 void MainWindow::runBorderDebug()
 {
     qDebug() << "Border Color changed to: " << myDraw1->getBorderColor();
+}
+
+QPointF *MainWindow::getMySelectedPoint() const
+{
+    return mySelectedPoint;
+}
+
+void MainWindow::setMySelectedPoint(QPointF *value)
+{
+    mySelectedPoint = value;
 }
 /**
  * @brief Fill Color debug message
@@ -121,6 +135,9 @@ void MainWindow::setActiveDrawingTool(Draw::Tool activeDrawingTool)
         case Draw::selectTool:
             ui->actionSelect_Tool->setChecked(true);
             break;
+        case Draw::lineTool:
+            ui->actionCircle_Tool->setChecked(true);
+            break;
         case Draw::circleTool:
             ui->actionCircle_Tool->setChecked(true);
             break;
@@ -130,6 +147,15 @@ void MainWindow::setActiveDrawingTool(Draw::Tool activeDrawingTool)
         }
         emit activeDrawingToolChanged(activeDrawingTool);
     }
+}
+
+void MainWindow::setSelectedPoint(QPointF selectedPoint)
+{
+    MainWindow::setMySelectedPoint(&selectedPoint);
+    double px = selectedPoint.x();
+    double py = selectedPoint.y();
+    ui->sb_x_pos->setValue(px);
+    ui->sb_y_pos->setValue(py);
 }
 
 
@@ -143,9 +169,19 @@ Draw *MainWindow::getMyDraw1() const
  */
 void MainWindow::on_actionSelect_Tool_triggered()
 {
+    ui->actionLine_Tool->setChecked(false);
     ui->actionCircle_Tool->setChecked(false);
     ui->actionRectangle_Tool->setChecked(false);
     myDraw1->setT(Draw::selectTool);
+    emit activeDrawingToolChanged(myDraw1->getT());
+}
+
+void MainWindow::on_actionLine_Tool_triggered()
+{
+    ui->actionSelect_Tool->setChecked(false);
+    ui->actionCircle_Tool->setChecked(false);
+    ui->actionRectangle_Tool->setChecked(false);
+    myDraw1->setT(Draw::lineTool);
     emit activeDrawingToolChanged(myDraw1->getT());
 }
 
@@ -155,6 +191,7 @@ void MainWindow::on_actionSelect_Tool_triggered()
 void MainWindow::on_actionCircle_Tool_triggered()
 {
     ui->actionSelect_Tool->setChecked(false);
+    ui->actionLine_Tool->setChecked(false);
     ui->actionRectangle_Tool->setChecked(false);
     myDraw1->setT(Draw::circleTool);
     emit activeDrawingToolChanged(myDraw1->getT());
@@ -167,6 +204,7 @@ void MainWindow::on_actionRectangle_Tool_triggered()
 {
     ui->actionSelect_Tool->setChecked(false);
     ui->actionCircle_Tool->setChecked(false);
+    ui->actionLine_Tool->setChecked(false);
     myDraw1->setT(Draw::rectTool);
     emit activeDrawingToolChanged(myDraw1->getT());
 }
@@ -185,3 +223,4 @@ void MainWindow::on_actionExit_triggered()
 {
     exit(0);
 }
+

@@ -33,39 +33,10 @@
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
               <layout class="QFormLayout" name="formLayout">
-               <item row="0" column="0">
-                <widget class="QSpinBox" name="sb_x_pos">
-                 <property name="minimum">
-                  <number>-500</number>
-                 </property>
-                 <property name="maximum">
-                  <number>500</number>
-                 </property>
-                 <property name="singleStep">
-                  <number>1</number>
-                 </property>
-                 <property name="value">
-                  <number>0</number>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="1">
                 <widget class="QLabel" name="lb_x_pos">
                  <property name="text">
                   <string>X Position</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QSpinBox" name="sb_y_pos">
-                 <property name="minimum">
-                  <number>-500</number>
-                 </property>
-                 <property name="maximum">
-                  <number>500</number>
-                 </property>
-                 <property name="value">
-                  <number>0</number>
                  </property>
                 </widget>
                </item>
@@ -107,6 +78,26 @@
                  </property>
                  <property name="value">
                   <number>10</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QDoubleSpinBox" name="sb_x_pos">
+                 <property name="decimals">
+                  <number>0</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1600.000000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QDoubleSpinBox" name="sb_y_pos">
+                 <property name="decimals">
+                  <number>0</number>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
                  </property>
                 </widget>
                </item>
@@ -175,6 +166,7 @@
     </property>
     <addaction name="actionSelect_Tool"/>
     <addaction name="separator"/>
+    <addaction name="actionLine_Tool"/>
     <addaction name="actionRectangle_Tool"/>
     <addaction name="actionCircle_Tool"/>
    </widget>
@@ -218,10 +210,10 @@
      <normaloff>:/new/prefix1/ic_pan_tool_black_48dp.png</normaloff>:/new/prefix1/ic_pan_tool_black_48dp.png</iconset>
    </property>
    <property name="text">
-    <string>S&amp;elect Tool</string>
+    <string>&amp;Select Tool</string>
    </property>
    <property name="shortcut">
-    <string>S</string>
+    <string>Alt+S</string>
    </property>
   </action>
   <action name="actionCircle_Tool">
@@ -237,7 +229,7 @@
     <string>&amp;Circle Tool</string>
    </property>
    <property name="shortcut">
-    <string>C</string>
+    <string>Alt+C</string>
    </property>
   </action>
   <action name="actionRectangle_Tool">
@@ -253,7 +245,7 @@
     <string>&amp;Rectangle Tool</string>
    </property>
    <property name="shortcut">
-    <string>R</string>
+    <string>Alt+R</string>
    </property>
   </action>
   <action name="actionExit">
@@ -262,6 +254,21 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionLine_Tool">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="Images/selecttool.qrc">
+     <normaloff>:/new/prefix1/ic_timeline_black_48dp.png</normaloff>:/new/prefix1/ic_timeline_black_48dp.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Line Tool</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+L</string>
    </property>
   </action>
  </widget>

@@ -3,10 +3,18 @@
 
 #include <qgraphicsscene.h>
 #include "roomgroundplan.h"
+#include<draw.h>
+
 
 class GraphicsScene : public QGraphicsScene
 {
     Q_OBJECT
+signals:
+    void newPointSelected(QPointF newPoint);
+
+public slots:
+    void setActiveDrawingTool(const Draw::Tool &activeDrawingTool);
+
 
 public:
     explicit GraphicsScene(QObject *parent = 0);
@@ -20,7 +28,7 @@ public:
 private:
     QPointF MyPoint;
     RoomGroundplan* myGroundplan;
-    bool test;
+    bool* lineToolActive;
 
 
 protected:

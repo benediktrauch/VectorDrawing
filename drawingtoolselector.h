@@ -33,6 +33,8 @@ private slots:
 
     void on_pb_rect_clicked();
 
+    void on_pb_line_clicked();
+
 private:
     Ui::DrawingToolSelector *ui;
 

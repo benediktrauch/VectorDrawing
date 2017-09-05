@@ -28,6 +28,9 @@ public:
 
     Draw *getMyDraw1() const;
 
+    QPointF *getMySelectedPoint() const;
+    void setMySelectedPoint(QPointF *value);
+
 private slots:
 
     void on_pb_AddObject_clicked();
@@ -40,6 +43,8 @@ private slots:
 
     void on_actionSelect_Tool_triggered();
 
+    void on_actionLine_Tool_triggered();
+
     void on_actionOpen_triggered();
 
     void on_actionSave_triggered();
@@ -47,7 +52,7 @@ private slots:
 public slots:
     void generateNewUI(Draw::Tool selectedTool);
     void setActiveDrawingTool(Draw::Tool activeDrawingTool);
-
+    void setSelectedPoint(QPointF selectedPoint);
 
 private:
     Ui::MainWindow *ui;
@@ -57,6 +62,7 @@ private:
     void runFillDebug();
     void runBorderDebug();
 
+    QPointF *mySelectedPoint;
     GraphicsObjectMap *mygraphicobjects;
 
 };
