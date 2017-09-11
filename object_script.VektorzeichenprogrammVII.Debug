@@ -11,6 +11,8 @@ INPUT(
 ./debug\drawingtoolselector.o
 ./debug\colortoolselector.o
 ./debug\roomgroundplan.o
+./debug\furniture.o
+./debug\objectsettings.o
 ./debug\qrc_selecttool.o
 ./debug\moc_mainwindow.o
 ./debug\moc_graphicsobject.o
@@ -18,4 +20,6 @@ INPUT(
 ./debug\moc_graphicsscene.o
 ./debug\moc_drawingtoolselector.o
 ./debug\moc_colortoolselector.o
+./debug\moc_furniture.o
+./debug\moc_objectsettings.o
 );

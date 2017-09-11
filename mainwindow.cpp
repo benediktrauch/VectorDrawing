@@ -5,10 +5,13 @@
 #include <iostream>
 #include <QString>
 #include <draw.h>
+#include "furniture.h"
 #include <QtDebug>
 #include <QColorDialog>
 #include <QColor>
 #include <QGraphicsSceneMouseEvent>
+#include <QGraphicsItem>
+#include "objectsettings.h"
 
 /**
  * @brief Creates new Window, binds Scene Object to graphicsView, sets background-color, connetion between tools/colors and mainwindow
@@ -35,7 +38,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(myGraphicsscene, SIGNAL(newPointSelected(QPointF)), this, SLOT(setSelectedPoint(QPointF)));
     connect(this, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myGraphicsscene, SLOT(setActiveDrawingTool(Draw::Tool)));
+    connect(this, SIGNAL(newObjectAdded(GraphicsObjectMap)), myGraphicsscene, SLOT(setCurrentMap(GraphicsObjectMap)));
+    connect(this, SIGNAL(objectRecieved(GraphicsObject*)), ui->objectSettingsWidget, SLOT(objectAttributes(GraphicsObject*)));
 
+    connect(ui->objectSettingsWidget, SIGNAL(myObjectNameChanged(QString)), this, SLOT(selectedObjectNameChanged(QString)));
+    connect(ui->objectSettingsWidget, SIGNAL(pb_removeObject()), this, SLOT(removeCurrentObject()));
 
     ui->pb_AddObject->setEnabled(false);
     ui->settingsBox->setEnabled(false);
@@ -45,8 +52,9 @@ MainWindow::MainWindow(QWidget *parent) :
     myDraw1->setT(Draw::selectTool);
     myDraw1->setFillColor(Qt::red);
     myDraw1->setBorderColor(Qt::red);
-    ui->graphicsView->setSceneRect(0,0,700,650);
+    ui->graphicsView->setSceneRect(0,0,300,150);
 
+    ui->objectSettingsWidget->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -62,15 +70,35 @@ void MainWindow::runBorderDebug()
     qDebug() << "Border Color changed to: " << myDraw1->getBorderColor();
 }
 
+GraphicsObject *MainWindow::getSelectedObject() const
+{
+    return m_selectedObject;
+}
+
+void MainWindow::setSelectedObject(GraphicsObject *selectedObject)
+{
+    m_selectedObject = selectedObject;
+    emit objectRecieved(selectedObject);
+
+}
+
+
+GraphicsObjectMap *MainWindow::getMygraphicobjects() const
+{
+    return mygraphicobjects;
+}
+
 QPointF *MainWindow::getMySelectedPoint() const
 {
-    return mySelectedPoint;
+    return this->mySelectedPoint;
 }
 
 void MainWindow::setMySelectedPoint(QPointF *value)
 {
+    emit newObjectAdded(*mygraphicobjects);
     mySelectedPoint = value;
 }
+
 /**
  * @brief Fill Color debug message
  */
@@ -97,8 +125,10 @@ void MainWindow::on_pb_AddObject_clicked()
         {
             tempObj = new Circle(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value(), myDraw1->getBorderColor(), myDraw1->getFillColor());
         }
+
         mygraphicobjects->myMap.insert(tempObj->graphicsItem(), tempObj);
         myGraphicsscene->addItem(tempObj->graphicsItem());
+        //qDebug() << this->getMygraphicobjects()->myMap.last()->name();
     }
     else
     {
@@ -156,8 +186,51 @@ void MainWindow::setSelectedPoint(QPointF selectedPoint)
     double py = selectedPoint.y();
     ui->sb_x_pos->setValue(px);
     ui->sb_y_pos->setValue(py);
+
+    QMap<QGraphicsItem *, GraphicsObject *>::const_iterator i = mygraphicobjects->myMap.constBegin();
+    while (i != mygraphicobjects->myMap.constEnd()) {
+        QRectF bounds = i.value()->graphicsItem()->boundingRect();
+        int height, width;
+        height = bounds.height();
+        width = bounds.width();
+        int x = i.value()->graphicsItem()->pos().x();
+        int y = i.value()->graphicsItem()->pos().y();
+
+        if(px >= x && py >= y){
+            if(px <= (x+width) && py <= (y+height)){
+                ui->objectSettingsWidget->setVisible(true);
+                this->setSelectedObject(i.value());
+            }
+        }
+        ++i;
+    }
 }
 
+void MainWindow::selectedObjectNameChanged(QString arg1)
+{
+    this->getSelectedObject()->setName(arg1);
+}
+
+void MainWindow::removeCurrentObject()
+{
+    qDebug() << "Delete: " << this->getSelectedObject();
+
+    QMap<QGraphicsItem *, GraphicsObject *>::const_iterator i = mygraphicobjects->myMap.constBegin();
+    while (i != mygraphicobjects->myMap.constEnd()) {
+        i.value();
+        if(this->getSelectedObject()->name() == i.value()->name()
+                && this->getSelectedObject()->posX() == i.value()->posX()
+                && this->getSelectedObject()->posY() == i.value()->posY())
+        {
+            mygraphicobjects->myMap.remove(i.key());
+            myGraphicsscene->removeItem(this->getSelectedObject()->graphicsItem());
+            i = mygraphicobjects->myMap.constEnd();
+        } else {
+            ++i;
+        }
+    }
+    ui->objectSettingsWidget->setVisible(false);
+}
 
 Draw *MainWindow::getMyDraw1() const
 {

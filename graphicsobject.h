@@ -6,6 +6,7 @@
 #include <QGraphicsObject>
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
+#include <QGraphicsItem>
 
 class GraphicsObject : public QObject
 {
@@ -31,7 +32,7 @@ public:
     QColor fillColor() const;
     void setFillColor(const QColor &fillColor);
 
-    virtual QString toString() = 0;
+    //virtual QString toString() = 0;
 
 signals:
 

@@ -8,12 +8,14 @@
 #include "mainwindow.h"
 #include "draw.h"
 
+
 GraphicsScene::GraphicsScene(QObject *parent):
     QGraphicsScene(parent)
 {
     lineToolActive = new bool;
     *lineToolActive = false;
     myGroundplan = new RoomGroundplan();
+
     this->addItem(myGroundplan);
 
     this->createGrid();
@@ -35,6 +37,12 @@ void GraphicsScene::setActiveDrawingTool(const Draw::Tool &activeDrawingTool)
     {
         *lineToolActive = false;
     }
+
+}
+
+void GraphicsScene::setCurrentMap(GraphicsObjectMap objectMap)
+{
+    m_graphicsObjectMap = objectMap;
 
 }
 
@@ -73,6 +81,34 @@ void GraphicsScene::createGrid()
     }
 }
 
+QGraphicsItem *GraphicsScene::mouseSelectedItem() const
+{
+    return 0;
+}
+void GraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
+{
+    QMap<QGraphicsItem *, GraphicsObject *>::const_iterator i = m_graphicsObjectMap.myMap.constBegin();
+    while (i != m_graphicsObjectMap.myMap.constEnd()) {
+
+        QRectF bounds = i.value()->graphicsItem()->boundingRect();
+        int height, width;
+        height = bounds.height();
+        width = bounds.width();
+        int x = i.value()->graphicsItem()->pos().x();
+        int y = i.value()->graphicsItem()->pos().y();
+
+        if(mouseEvent->scenePos().x() >= x && mouseEvent->scenePos().y() >= y){
+            if(mouseEvent->scenePos().x() <= (x+width) && mouseEvent->scenePos().y() <= (y+height)){
+                i.value()->graphicsItem()->setPos(mouseEvent->scenePos().x()-width/2, mouseEvent->scenePos().y()-height/2);
+            }
+        }
+        ++i;
+    }
+}
+void GraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent)
+{
+
+}
 
 void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
@@ -102,7 +138,6 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
         {
             if(*lineToolActive){
                 myGroundplan->addLineToGroup(this->getMyPoint(), pt);
-
             }
         }
 

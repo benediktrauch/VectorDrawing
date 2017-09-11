@@ -43,7 +43,7 @@
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true">img: url(:/new/prefix1/ic_fiber_manual_record_black_48dp.png);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -84,7 +84,7 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">img: url(:/new/prefix1/ic_pan_tool_black_48dp.png);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -119,7 +119,7 @@
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true">img: url(:/new/prefix1/ic_stop_black_48dp.png);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>
@@ -152,7 +152,7 @@
       <item row="1" column="1">
        <widget class="QToolButton" name="pb_line">
         <property name="styleSheet">
-         <string notr="true">img: url(:/new/prefix1/ic_timeline_black_48dp.png);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string/>

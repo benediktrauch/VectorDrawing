@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>(T)Raum - Plan dein Jugendzimmer</string>
+   <string>(T)Raum - Plan dein Jugendzimmer 2.0</string>
   </property>
   <property name="windowIcon">
    <iconset resource="Images/selecttool.qrc">
@@ -21,7 +21,7 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_3">
-      <item row="1" column="2">
+      <item row="3" column="2">
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="5" column="0">
          <layout class="QGridLayout" name="gridLayout_4">
@@ -118,26 +118,33 @@
           </item>
          </layout>
         </item>
-        <item row="0" column="0">
-         <widget class="ColorToolSelector" name="colorToolSelector" native="true"/>
+       </layout>
+      </item>
+      <item row="1" column="3" rowspan="3">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="ObjectSettings" name="objectSettingsWidget" native="true"/>
+        </item>
+        <item>
+         <widget class="QGraphicsView" name="graphicsView">
+          <property name="cursor" stdset="0">
+           <cursorShape>ArrowCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
-      <item row="0" column="2">
+      <item row="1" column="2">
        <widget class="DrawingToolSelector" name="drawingToolSelector" native="true"/>
       </item>
-      <item row="0" column="3" rowspan="2">
-       <widget class="QGraphicsView" name="graphicsView">
-        <property name="cursor" stdset="0">
-         <cursorShape>ArrowCursor</cursorShape>
-        </property>
-        <property name="styleSheet">
-         <string notr="true"/>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-        </property>
-       </widget>
+      <item row="2" column="2">
+       <widget class="ColorToolSelector" name="colorToolSelector" native="true"/>
       </item>
      </layout>
     </item>
@@ -284,6 +291,12 @@
    <class>ColorToolSelector</class>
    <extends>QWidget</extends>
    <header>colortoolselector.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ObjectSettings</class>
+   <extends>QWidget</extends>
+   <header>objectsettings.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

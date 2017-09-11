@@ -35,9 +35,10 @@ Circle::Circle(qreal x, qreal y, qreal width, qreal heigth, QColor color1, QColo
     this->setName(QString("circle_%1").arg(m_circleCounter));
     m_circleCounter++;
 
-    m_graphicsEllipse->setRect(x, y, heigth, width);
+    m_graphicsEllipse->setRect(0, 0, heigth, width);
     m_graphicsEllipse->setPen(color1); //Border
     m_graphicsEllipse->setBrush(color2); //Fill
+    m_graphicsEllipse->setPos(x, y);
 }
 
 QString Circle::toString()

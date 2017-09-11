@@ -9,6 +9,9 @@
 #include "graphicsobjectmap.h"
 #include "graphicsscene.h"
 #include "colorbutton.h"
+#include "furniture.h"
+#include "graphicsobject.h"
+#include "objectsettings.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,11 +20,6 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
-signals:
-    void activeDrawingToolChanged(Draw::Tool activeDrawingTool);
-
-
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -31,28 +29,32 @@ public:
     QPointF *getMySelectedPoint() const;
     void setMySelectedPoint(QPointF *value);
 
+    GraphicsObjectMap *getMygraphicobjects() const;
+
+    GraphicsObject *getSelectedObject() const;
+    void setSelectedObject(GraphicsObject *selectedObject);
+
+signals:
+    void activeDrawingToolChanged(Draw::Tool activeDrawingTool);
+    void newObjectAdded(GraphicsObjectMap newObject);
+    void objectRecieved(GraphicsObject *myObject);
+
 private slots:
-
     void on_pb_AddObject_clicked();
-
     void on_actionCircle_Tool_triggered();
-
     void on_actionExit_triggered();
-
     void on_actionRectangle_Tool_triggered();
-
     void on_actionSelect_Tool_triggered();
-
     void on_actionLine_Tool_triggered();
-
     void on_actionOpen_triggered();
-
     void on_actionSave_triggered();
 
 public slots:
     void generateNewUI(Draw::Tool selectedTool);
     void setActiveDrawingTool(Draw::Tool activeDrawingTool);
     void setSelectedPoint(QPointF selectedPoint);
+    void selectedObjectNameChanged(QString arg1);
+    void removeCurrentObject();
 
 private:
     Ui::MainWindow *ui;
@@ -64,6 +66,7 @@ private:
 
     QPointF *mySelectedPoint;
     GraphicsObjectMap *mygraphicobjects;
+    GraphicsObject *m_selectedObject;
 
 };
 

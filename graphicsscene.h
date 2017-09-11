@@ -3,6 +3,8 @@
 
 #include <qgraphicsscene.h>
 #include "roomgroundplan.h"
+#include "graphicsobject.h"
+#include "graphicsobjectmap.h"
 #include<draw.h>
 
 
@@ -14,7 +16,7 @@ signals:
 
 public slots:
     void setActiveDrawingTool(const Draw::Tool &activeDrawingTool);
-
+    void setCurrentMap(GraphicsObjectMap objectMap);
 
 public:
     explicit GraphicsScene(QObject *parent = 0);
@@ -25,15 +27,20 @@ public:
 
     void createGrid();
 
+    void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent) override;
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent) override;
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent) override;
+
 private:
     QPointF MyPoint;
     RoomGroundplan* myGroundplan;
     bool* lineToolActive;
+    QGraphicsItem *mouseSelectedItem() const;
+
+    GraphicsObjectMap m_graphicsObjectMap;
 
 
 protected:
-    void mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent) override;
-
 };
 
 #endif // GRAPHICSSCENE_H

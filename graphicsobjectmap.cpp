@@ -14,6 +14,6 @@ void GraphicsObjectMap::PrintObjects()
     QMapIterator<QGraphicsItem *, GraphicsObject *>i (myMap);
     while(i.hasNext()){
         i.next();
-        qDebug() << i.value()->toString();
+        qDebug() << i.value()->name();
     }
 }

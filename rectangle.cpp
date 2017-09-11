@@ -18,9 +18,10 @@ Rectangle::Rectangle(qreal x, qreal y, qreal width, qreal heigth, QColor color1,
     this->setName(QString("rectangle_%1 ").arg(m_rectangleCounter));
     m_rectangleCounter++;
 
-    m_graphicsRect->setRect(x, y, heigth, width);
+    m_graphicsRect->setRect(0, 0, heigth, width);
     m_graphicsRect->setPen(color1); //Border
     m_graphicsRect->setBrush(color2); //Fill
+    m_graphicsRect->setPos(x, y);
 }
 
 QGraphicsItem *Rectangle::graphicsItem() const
