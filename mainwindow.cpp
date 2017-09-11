@@ -200,6 +200,8 @@ void MainWindow::setSelectedPoint(QPointF selectedPoint)
             if(px <= (x+width) && py <= (y+height)){
                 ui->objectSettingsWidget->setVisible(true);
                 this->setSelectedObject(i.value());
+                emit activeDrawingToolChanged(Draw::selectTool);
+
             }
         }
         ++i;
@@ -213,8 +215,6 @@ void MainWindow::selectedObjectNameChanged(QString arg1)
 
 void MainWindow::removeCurrentObject()
 {
-    qDebug() << "Delete: " << this->getSelectedObject();
-
     QMap<QGraphicsItem *, GraphicsObject *>::const_iterator i = mygraphicobjects->myMap.constBegin();
     while (i != mygraphicobjects->myMap.constEnd()) {
         i.value();

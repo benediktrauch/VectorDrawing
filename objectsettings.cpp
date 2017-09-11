@@ -19,7 +19,6 @@ ObjectSettings::~ObjectSettings()
 
 void ObjectSettings::objectAttributes(GraphicsObject *myObject)
 {
-    qDebug() << "myObject :" << myObject;
     ui->le_objectName->setText(myObject->name());
 }
 
