@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->menuBar->setVisible(false);
     myDraw1 = new Draw();
 
     mygraphicobjects = new GraphicsObjectMap();
@@ -116,21 +117,38 @@ void MainWindow::runFillDebug()
  */
 void MainWindow::on_pb_AddObject_clicked()
 {
-    GraphicsObject *tempObj;
+//    GraphicsObject *tempObj;
+//    if (myDraw1->getT() != Draw::selectTool)
+//    {
+//        if (myDraw1->getT() == Draw::rectTool)
+//        {
+//            tempObj = new Rectangle(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value(), myDraw1->getBorderColor(), myDraw1->getFillColor());
+//        }
+
+//        if (myDraw1->getT() == Draw::circleTool)
+//        {
+//            tempObj = new Circle(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value(), myDraw1->getBorderColor(), myDraw1->getFillColor());
+//        }
+
+//        mygraphicobjects->myMap.insert(tempObj->graphicsItem(), tempObj);
+//        myGraphicsscene->addItem(tempObj->graphicsItem());
+//        //qDebug() << this->getMygraphicobjects()->myMap.last()->name();
+//    }
+    QGraphicsItem *tempObj;
     if (myDraw1->getT() != Draw::selectTool)
     {
         if (myDraw1->getT() == Draw::rectTool)
         {
-            tempObj = new Rectangle(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value(), myDraw1->getBorderColor(), myDraw1->getFillColor());
+            tempObj = new QGraphicsRectItem(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value());
         }
 
         if (myDraw1->getT() == Draw::circleTool)
         {
-            tempObj = new Circle(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value(), myDraw1->getBorderColor(), myDraw1->getFillColor());
+            tempObj = new QGraphicsEllipseItem(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value());
         }
 
-        mygraphicobjects->myMap.insert(tempObj->graphicsItem(), tempObj);
-        myGraphicsscene->addItem(tempObj->graphicsItem());
+        mygraphicobjects->myMap.insert(tempObj, tempObj);
+        myGraphicsscene->addItem(tempObj);
         //qDebug() << this->getMygraphicobjects()->myMap.last()->name();
     }
     else
@@ -236,10 +254,7 @@ void MainWindow::removeCurrentObject()
 
 void MainWindow::selectedObjectRotated(int value)
 {
-    int x, y, height, width;
-    x = this->getSelectedObject()->graphicsItem()->x();
-    y = this->getSelectedObject()->graphicsItem()->y();
-
+    int height, width;
     QRectF bounds = this->getSelectedObject()->graphicsItem()->boundingRect();
 
     height = bounds.height();
@@ -319,3 +334,8 @@ void MainWindow::on_actionExit_triggered()
     exit(0);
 }
 
+void MainWindow::on_pushButton_2_clicked()
+{
+    tutoriallinetool = new TutorialLineTool();
+    tutoriallinetool->show();
+}

@@ -31,37 +31,13 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_3">
-      <item row="1" column="3" rowspan="3">
-       <layout class="QGridLayout" name="gridLayout_5">
-        <item row="1" column="0" rowspan="2">
-         <widget class="ObjectSettings" name="objectSettingsWidget" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>27</height>
-           </size>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QGraphicsView" name="graphicsView">
-          <property name="cursor" stdset="0">
-           <cursorShape>ArrowCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QWidget {
-	background-color: #FFFFFF; border: 1px solid black;
-	border-radius: 5px;
-}</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
+      <item row="2" column="2">
+       <widget class="DrawingToolSelector" name="drawingToolSelector" native="true"/>
       </item>
       <item row="3" column="2">
+       <widget class="ColorToolSelector" name="colorToolSelector" native="true"/>
+      </item>
+      <item row="4" column="2">
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="5" column="0">
          <layout class="QGridLayout" name="gridLayout_4">
@@ -186,10 +162,62 @@
        </layout>
       </item>
       <item row="1" column="2">
-       <widget class="DrawingToolSelector" name="drawingToolSelector" native="true"/>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="toolTip">
+         <string>Hilfefenster anzeigen.</string>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+     border: 1px solid black;
+	background-color: rgb(255, 255, 0);
+     border-radius: 5px;
+}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="Images/selecttool.qrc">
+          <normaloff>:/new/prefix1/Element 1.png</normaloff>:/new/prefix1/Element 1.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>150</width>
+          <height>40</height>
+         </size>
+        </property>
+       </widget>
       </item>
-      <item row="2" column="2">
-       <widget class="ColorToolSelector" name="colorToolSelector" native="true"/>
+      <item row="1" column="3" rowspan="4">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="1" column="0" rowspan="2">
+         <widget class="ObjectSettings" name="objectSettingsWidget" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>27</height>
+           </size>
+          </property>
+          <zorder>graphicsView</zorder>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QGraphicsView" name="graphicsView">
+          <property name="cursor" stdset="0">
+           <cursorShape>ArrowCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+	background-color: #FFFFFF; border: 1px solid black;
+	border-radius: 5px;
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>

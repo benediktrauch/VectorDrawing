@@ -12,6 +12,8 @@
 #include "furniture.h"
 #include "graphicsobject.h"
 #include "objectsettings.h"
+#include "tutoriallinetool.h"
+#include "graphicsitem.h"
 
 namespace Ui {
 class MainWindow;
@@ -48,6 +50,7 @@ private slots:
     void on_actionLine_Tool_triggered();
     void on_actionOpen_triggered();
     void on_actionSave_triggered();
+    void on_pushButton_2_clicked();
 
 public slots:
     void generateNewUI(Draw::Tool selectedTool);
@@ -69,6 +72,7 @@ private:
     QPointF *mySelectedPoint;
     GraphicsObjectMap *mygraphicobjects;
     GraphicsObject *m_selectedObject;
+    TutorialLineTool *tutoriallinetool;
 
 };
 

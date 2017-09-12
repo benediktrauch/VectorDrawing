@@ -32,6 +32,8 @@ public:
     QColor fillColor() const;
     void setFillColor(const QColor &fillColor);
 
+    void hoverEnterEvent(QGraphicsSceneHoverEvent *mouseEvent);
+
     //virtual QString toString() = 0;
 
 signals:

@@ -12,7 +12,7 @@ unsigned long GraphicsObject::m_graphicsObjectCounter = 0;
 GraphicsObject::GraphicsObject(QObject *parent) : QObject (parent)
 {
     m_graphicsItem = NULL;
-    m_name = QString("graphics_%1 ").arg(m_graphicsObjectCounter);
+    m_name = QString("graphics_%1").arg(m_graphicsObjectCounter);
 }
 /**
  * @brief Getter for name of GraphicsObject
@@ -103,3 +103,5 @@ void GraphicsObject::setFillColor(const QColor &fillColor)
 {
     m_fillColor = fillColor;
 }
+
+

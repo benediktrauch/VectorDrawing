@@ -25,7 +25,10 @@ SOURCES += main.cpp\
     colortoolselector.cpp \
     roomgroundplan.cpp \
     furniture.cpp \
-    objectsettings.cpp
+    objectsettings.cpp \
+    welcomedialog.cpp \
+    tutoriallinetool.cpp \
+    graphicsitem.cpp
 
 HEADERS  += mainwindow.h \
     graphicsobject.h \
@@ -39,12 +42,17 @@ HEADERS  += mainwindow.h \
     colortoolselector.h \
     roomgroundplan.h \
     furniture.h \
-    objectsettings.h
+    objectsettings.h \
+    welcomedialog.h \
+    tutoriallinetool.h \
+    graphicsitem.h
 
 FORMS    += mainwindow.ui \
     drawingtoolselector.ui \
     colortoolselector.ui \
-    objectsettings.ui
+    objectsettings.ui \
+    welcomedialog.ui \
+    tutoriallinetool.ui
 
 RESOURCES += \
     Images/selecttool.qrc
