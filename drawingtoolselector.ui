@@ -17,20 +17,20 @@
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox">
      <property name="title">
-      <string>ToolBox</string>
+      <string>Werkzeugkiste</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_4">
       <item row="2" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Circle Tool</string>
+         <string>Runde Möbel</string>
         </property>
        </widget>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Rectangle Tool</string>
+         <string>Eckige Möbel</string>
         </property>
        </widget>
       </item>
@@ -43,7 +43,14 @@
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">QToolButton {
+     background-color: rgb(255, 255, 30); border: 1px solid black;
+     border-radius: 5px;
+}
+
+QToolButton:checked {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 0, 255), stop:1 rgba(255, 200, 0, 255))
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -84,7 +91,14 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">QToolButton {
+     background-color: rgb(255, 255, 30); border: 1px solid black;
+     border-radius: 5px;
+}
+
+QToolButton:checked {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 0, 255), stop:1 rgba(255, 200, 0, 255))
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -119,7 +133,14 @@
          </sizepolicy>
         </property>
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">QToolButton {
+     background-color: rgb(255, 255, 30); border: 1px solid black;
+     border-radius: 5px;
+}
+
+QToolButton:checked {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 0, 255), stop:1 rgba(255, 200, 0, 255))
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -145,14 +166,21 @@
       <item row="0" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Select Tool</string>
+         <string>Auswahlwerkzeug</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
        <widget class="QToolButton" name="pb_line">
         <property name="styleSheet">
-         <string notr="true"/>
+         <string notr="true">QToolButton {
+     background-color: rgb(255, 255, 30); border: 1px solid black;
+     border-radius: 5px;
+}
+
+QToolButton:checked {
+    background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 255, 0, 255), stop:1 rgba(255, 200, 0, 255))
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -181,7 +209,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Line Tool</string>
+         <string>Linien Werkzeug</string>
         </property>
        </widget>
       </item>

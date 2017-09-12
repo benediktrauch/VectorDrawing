@@ -18,14 +18,21 @@ public:
 
 public slots:
     void objectAttributes(GraphicsObject *myObject);
+
 signals:
     void myObjectNameChanged(QString arg1);
     void pb_removeObject();
+    void dial_rotationChanged(int value);
+    void closeButtonPressed();
 
 private slots:
     void on_le_objectName_textChanged(const QString &arg1);
 
     void on_pb_deleteObject_clicked();
+
+    void on_dial_valueChanged(int value);
+
+    void on_pushButton_clicked();
 
 private:
     Ui::ObjectSettings *ui;

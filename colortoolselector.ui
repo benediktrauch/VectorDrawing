@@ -17,20 +17,20 @@
    <item row="0" column="0">
     <widget class="QGroupBox" name="groupBox_5">
      <property name="title">
-      <string>Colors</string>
+      <string>Farbauswahl</string>
      </property>
      <property name="flat">
       <bool>false</bool>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QGroupBox" name="groupBox_3">
+       <widget class="QGroupBox" name="groupBox_2">
         <property name="title">
-         <string>Border Color</string>
+         <string>Farbe des Möbelstücks</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_5">
+        <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
-          <widget class="ColorButton" name="pb_border_color">
+          <widget class="ColorButton" name="pb_fill_color">
            <property name="text">
             <string/>
            </property>
@@ -40,13 +40,13 @@
        </widget>
       </item>
       <item>
-       <widget class="QGroupBox" name="groupBox_2">
+       <widget class="QGroupBox" name="groupBox_3">
         <property name="title">
-         <string>Fill Color</string>
+         <string>Umrandungs Farbe</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_4">
+        <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
-          <widget class="ColorButton" name="pb_fill_color">
+          <widget class="ColorButton" name="pb_border_color">
            <property name="text">
             <string/>
            </property>

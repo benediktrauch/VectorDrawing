@@ -7,6 +7,8 @@
 #include "roomgroundplan.h"
 #include "mainwindow.h"
 #include "draw.h"
+#include <QPainterPath>
+
 
 
 GraphicsScene::GraphicsScene(QObject *parent):
@@ -15,6 +17,10 @@ GraphicsScene::GraphicsScene(QObject *parent):
     lineToolActive = new bool;
     *lineToolActive = false;
     myGroundplan = new RoomGroundplan();
+
+    rectPath = new QPainterPath;
+    startPoint = new QPointF;
+    endPoint = new QPointF;
 
     this->addItem(myGroundplan);
 
@@ -144,6 +150,45 @@ void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
         if(*lineToolActive){
             this->setMyPoint(pt);
             this->addEllipse(myPtX-rad, myPtY-rad, rad*2.0, rad*2.0,QPen(), QBrush(Qt::SolidPattern));
+        }
+
+        if(*lineToolActive && endPoint->isNull()){
+            qDebug() << rectPath->length();
+            if(startPoint->isNull()){
+                rectPath->moveTo(pt.x(), pt.y());
+                startPoint->setX(pt.x());
+                startPoint->setY(pt.y());
+            }
+            else if(pt.x() == startPoint->x() && pt.y() == startPoint->y()){
+                rectPath->closeSubpath();
+
+                rectPath->moveTo(-10, -10);
+                rectPath->lineTo(-10, 10000);
+                rectPath->lineTo(10000, 10000);
+                rectPath->lineTo(10000, -10);
+                rectPath->closeSubpath();
+
+                QPen pen;  // creates a default pen
+
+                pen.setStyle(Qt::SolidLine);
+                pen.setWidth(3);
+                pen.setBrush(Qt::black);
+                pen.setCapStyle(Qt::RoundCap);
+                pen.setJoinStyle(Qt::RoundJoin);
+
+                QBrush brush;
+
+                brush.setColor(Qt::black);
+                brush.setStyle(Qt::BDiagPattern);
+
+                this->addPath(*rectPath, pen, brush);
+                endPoint->setX(pt.x());
+                endPoint->setY(pt.y());
+            }
+            else
+            {
+                rectPath->lineTo(pt.x(), pt.y());
+            }
         }
         emit newPointSelected(pt);
     }

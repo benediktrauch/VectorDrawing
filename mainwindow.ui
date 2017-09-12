@@ -17,10 +17,50 @@
    <iconset resource="Images/selecttool.qrc">
     <normaloff>:/new/prefix1/ic_add_box_black_48dp.png</normaloff>:/new/prefix1/ic_add_box_black_48dp.png</iconset>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+     background-color: #FFFDB5;
+}</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">QWidget {
+     background-color: #FFFDB5;
+}</string>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout_3">
+      <item row="1" column="3" rowspan="3">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="1" column="0" rowspan="2">
+         <widget class="ObjectSettings" name="objectSettingsWidget" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>27</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QGraphicsView" name="graphicsView">
+          <property name="cursor" stdset="0">
+           <cursorShape>ArrowCursor</cursorShape>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {
+	background-color: #FFFFFF; border: 1px solid black;
+	border-radius: 5px;
+}</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
       <item row="3" column="2">
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="5" column="0">
@@ -28,22 +68,28 @@
           <item row="1" column="0">
            <widget class="QGroupBox" name="settingsBox">
             <property name="title">
-             <string>Settings</string>
+             <string>Größe und Position</string>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
               <layout class="QFormLayout" name="formLayout">
                <item row="0" column="1">
                 <widget class="QLabel" name="lb_x_pos">
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Hier kannst Du einstellen, wie weit rechts, oder Links das Möbelstück hingestellt werden soll. Das kannst du aber später noch ändern.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
                  <property name="text">
-                  <string>X Position</string>
+                  <string>Position (R/L) </string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="1">
                 <widget class="QLabel" name="lb_y_pos">
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Hier kannst Du einstellen, wie weit vorne oder hinten das Möbelstück hingestellt werden soll. Auf deinem Bildschirm wird es als Oben und Unten dargestellt. Das kannst du aber später noch ändern.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
                  <property name="text">
-                  <string>Y Position</string>
+                  <string>Position (V/H)</string>
                  </property>
                 </widget>
                </item>
@@ -60,14 +106,14 @@
                <item row="3" column="1">
                 <widget class="QLabel" name="lb_width">
                  <property name="text">
-                  <string>Width</string>
+                  <string>cm Breite</string>
                  </property>
                 </widget>
                </item>
                <item row="2" column="1">
                 <widget class="QLabel" name="lb_height">
                  <property name="text">
-                  <string>Height</string>
+                  <string>cm Länge</string>
                  </property>
                 </widget>
                </item>
@@ -83,6 +129,9 @@
                </item>
                <item row="0" column="0">
                 <widget class="QDoubleSpinBox" name="sb_x_pos">
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Hier kannst Du einstellen, wie weit rechts, oder Links das Möbelstück hingestellt werden soll. Das kannst du aber später noch ändern.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
                  <property name="decimals">
                   <number>0</number>
                  </property>
@@ -93,6 +142,9 @@
                </item>
                <item row="1" column="0">
                 <widget class="QDoubleSpinBox" name="sb_y_pos">
+                 <property name="toolTip">
+                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Hier kannst Du einstellen, wie weit vorne oder hinten das Möbelstück hingestellt werden soll. Auf deinem Bildschirm wird es als Oben und Unten dargestellt. Das kannst du aber später noch ändern.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 </property>
                  <property name="decimals">
                   <number>0</number>
                  </property>
@@ -108,8 +160,21 @@
           </item>
           <item row="2" column="0">
            <widget class="QPushButton" name="pb_AddObject">
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+     background-color: #06E100; border: 1px solid black;
+     border-radius: 5px;
+}</string>
+            </property>
             <property name="text">
-             <string>AddObject</string>
+             <string>Ab ins Zimmer damit</string>
+            </property>
+            <property name="icon">
+             <iconset resource="Images/selecttool.qrc">
+              <normaloff>:/new/prefix1/ic_done_black_24dp.png</normaloff>:/new/prefix1/ic_done_black_24dp.png</iconset>
             </property>
             <property name="checkable">
              <bool>false</bool>
@@ -117,26 +182,6 @@
            </widget>
           </item>
          </layout>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="3" rowspan="3">
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="ObjectSettings" name="objectSettingsWidget" native="true"/>
-        </item>
-        <item>
-         <widget class="QGraphicsView" name="graphicsView">
-          <property name="cursor" stdset="0">
-           <cursorShape>ArrowCursor</cursorShape>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-          </property>
-         </widget>
         </item>
        </layout>
       </item>

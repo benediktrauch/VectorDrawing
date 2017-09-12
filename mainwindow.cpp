@@ -43,6 +43,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->objectSettingsWidget, SIGNAL(myObjectNameChanged(QString)), this, SLOT(selectedObjectNameChanged(QString)));
     connect(ui->objectSettingsWidget, SIGNAL(pb_removeObject()), this, SLOT(removeCurrentObject()));
+    connect(ui->objectSettingsWidget, SIGNAL(closeButtonPressed()), this, SLOT(ObjectSettingsClose()));
+    connect(ui->objectSettingsWidget, SIGNAL(dial_rotationChanged(int)), this, SLOT(selectedObjectRotated(int)));
+
 
     ui->pb_AddObject->setEnabled(false);
     ui->settingsBox->setEnabled(false);
@@ -117,7 +120,7 @@ void MainWindow::on_pb_AddObject_clicked()
     if (myDraw1->getT() != Draw::selectTool)
     {
         if (myDraw1->getT() == Draw::rectTool)
-        {            
+        {
             tempObj = new Rectangle(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value(), myDraw1->getBorderColor(), myDraw1->getFillColor());
         }
 
@@ -201,7 +204,6 @@ void MainWindow::setSelectedPoint(QPointF selectedPoint)
                 ui->objectSettingsWidget->setVisible(true);
                 this->setSelectedObject(i.value());
                 emit activeDrawingToolChanged(Draw::selectTool);
-
             }
         }
         ++i;
@@ -229,6 +231,26 @@ void MainWindow::removeCurrentObject()
             ++i;
         }
     }
+    ui->objectSettingsWidget->setVisible(false);
+}
+
+void MainWindow::selectedObjectRotated(int value)
+{
+    int x, y, height, width;
+    x = this->getSelectedObject()->graphicsItem()->x();
+    y = this->getSelectedObject()->graphicsItem()->y();
+
+    QRectF bounds = this->getSelectedObject()->graphicsItem()->boundingRect();
+
+    height = bounds.height();
+    width = bounds.width();
+
+    this->getSelectedObject()->graphicsItem()->setTransformOriginPoint(width/2, height/2);
+    this->getSelectedObject()->graphicsItem()->setRotation(value);
+}
+
+void MainWindow::ObjectSettingsClose()
+{
     ui->objectSettingsWidget->setVisible(false);
 }
 

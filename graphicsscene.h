@@ -37,6 +37,10 @@ private:
     bool* lineToolActive;
     QGraphicsItem *mouseSelectedItem() const;
 
+    QPainterPath* rectPath;
+    QPointF* startPoint;
+    QPointF* endPoint;
+
     GraphicsObjectMap m_graphicsObjectMap;
 
 

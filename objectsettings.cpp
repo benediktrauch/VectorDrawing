@@ -31,3 +31,13 @@ void ObjectSettings::on_pb_deleteObject_clicked()
 {
     emit pb_removeObject();
 }
+
+void ObjectSettings::on_dial_valueChanged(int value)
+{
+    emit dial_rotationChanged(value);
+}
+
+void ObjectSettings::on_pushButton_clicked()
+{
+    emit closeButtonPressed();
+}

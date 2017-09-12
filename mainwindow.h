@@ -55,6 +55,8 @@ public slots:
     void setSelectedPoint(QPointF selectedPoint);
     void selectedObjectNameChanged(QString arg1);
     void removeCurrentObject();
+    void selectedObjectRotated(int value);
+    void ObjectSettingsClose();
 
 private:
     Ui::MainWindow *ui;
