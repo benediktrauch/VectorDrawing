@@ -1,0 +1,206 @@
+\hypertarget{class_draw}{}\section{Draw Class Reference}
+\label{class_draw}\index{Draw@{Draw}}
+
+
+{\ttfamily \#include $<$draw.\+h$>$}
+
+Inheritance diagram for Draw\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_draw}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Tool} \{ \hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9bae4a005b9e5843075e8e0a77b7a3d7159}{select\+Tool}, 
+\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9ba28e42983eabb4d975227fb7b365c3295}{line\+Tool}, 
+\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9baf76785749efd3ceaf7fa226d8cc0de66}{circle\+Tool}, 
+\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9ba7778b9c2175c8a25f395a1565c5dac30}{rect\+Tool}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_draw_a960270765705698a6663fdfe93356d17}{set\+Border\+Color} (const Q\+Color \&value)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_draw_a960270765705698a6663fdfe93356d17}{Draw\+::set\+Border\+Color}. \end{DoxyCompactList}\item 
+void \hyperlink{class_draw_a7d802038dd6aa2afe1a8570dbe681136}{set\+Fill\+Color} (const Q\+Color \&value)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_draw_a7d802038dd6aa2afe1a8570dbe681136}{Draw\+::set\+Fill\+Color}. \end{DoxyCompactList}\item 
+void \hyperlink{class_draw_af955c348f57d49fdb861ad82f485b902}{setT} (const \hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool} \&t)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_draw_af955c348f57d49fdb861ad82f485b902}{Draw\+::setT}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_draw_a65056d377baf1383f8af678ba2ed1467}{active\+Drawing\+Tool\+Changed} (\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool} active\+Drawing\+Tool)
+\item 
+void \hyperlink{class_draw_ac28b7e408c687ddfd85e01954109329d}{active\+Fill\+Color\+Tool\+Changed} (Q\+Color fill\+Color)
+\item 
+void \hyperlink{class_draw_aeafc6ac98a670e97b047bc34d7a13141}{active\+Border\+Color\+Tool\+Changed} (Q\+Color border\+Color)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_draw_aaad70829cedc40ada59d620bf075e27d}{Draw} (Q\+Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_draw_aaad70829cedc40ada59d620bf075e27d}{Draw\+::\+Draw}. \end{DoxyCompactList}\item 
+Q\+Color \hyperlink{class_draw_aa3700cc975270d70dcf18d4160d7f1e6}{get\+Border\+Color} () const
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_draw_aa3700cc975270d70dcf18d4160d7f1e6}{Draw\+::get\+Border\+Color}. \end{DoxyCompactList}\item 
+Q\+Color \hyperlink{class_draw_a4be8a242b92fd9d5c42fe9a40810cdb6}{get\+Fill\+Color} () const
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_draw_a4be8a242b92fd9d5c42fe9a40810cdb6}{Draw\+::get\+Fill\+Color}. \end{DoxyCompactList}\item 
+\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool} \hyperlink{class_draw_a051a72609a03e7b21990060d0f306558}{getT} () const
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_draw_a051a72609a03e7b21990060d0f306558}{Draw\+::getT}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_draw_aef97a848de7a634c35c3ce678be88b9b}\label{class_draw_aef97a848de7a634c35c3ce678be88b9b}} 
+\index{Draw@{Draw}!Tool@{Tool}}
+\index{Tool@{Tool}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{Tool}{Tool}}
+{\footnotesize\ttfamily enum \hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{select\+Tool@{select\+Tool}!Draw@{Draw}}\index{Draw@{Draw}!select\+Tool@{select\+Tool}}}\mbox{\Hypertarget{class_draw_aef97a848de7a634c35c3ce678be88b9bae4a005b9e5843075e8e0a77b7a3d7159}\label{class_draw_aef97a848de7a634c35c3ce678be88b9bae4a005b9e5843075e8e0a77b7a3d7159}} 
+select\+Tool&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{line\+Tool@{line\+Tool}!Draw@{Draw}}\index{Draw@{Draw}!line\+Tool@{line\+Tool}}}\mbox{\Hypertarget{class_draw_aef97a848de7a634c35c3ce678be88b9ba28e42983eabb4d975227fb7b365c3295}\label{class_draw_aef97a848de7a634c35c3ce678be88b9ba28e42983eabb4d975227fb7b365c3295}} 
+line\+Tool&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{circle\+Tool@{circle\+Tool}!Draw@{Draw}}\index{Draw@{Draw}!circle\+Tool@{circle\+Tool}}}\mbox{\Hypertarget{class_draw_aef97a848de7a634c35c3ce678be88b9baf76785749efd3ceaf7fa226d8cc0de66}\label{class_draw_aef97a848de7a634c35c3ce678be88b9baf76785749efd3ceaf7fa226d8cc0de66}} 
+circle\+Tool&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{rect\+Tool@{rect\+Tool}!Draw@{Draw}}\index{Draw@{Draw}!rect\+Tool@{rect\+Tool}}}\mbox{\Hypertarget{class_draw_aef97a848de7a634c35c3ce678be88b9ba7778b9c2175c8a25f395a1565c5dac30}\label{class_draw_aef97a848de7a634c35c3ce678be88b9ba7778b9c2175c8a25f395a1565c5dac30}} 
+rect\+Tool&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_draw_aaad70829cedc40ada59d620bf075e27d}\label{class_draw_aaad70829cedc40ada59d620bf075e27d}} 
+\index{Draw@{Draw}!Draw@{Draw}}
+\index{Draw@{Draw}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily Draw\+::\+Draw (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\hyperlink{class_draw_aaad70829cedc40ada59d620bf075e27d}{Draw\+::\+Draw}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_draw_aeafc6ac98a670e97b047bc34d7a13141}\label{class_draw_aeafc6ac98a670e97b047bc34d7a13141}} 
+\index{Draw@{Draw}!active\+Border\+Color\+Tool\+Changed@{active\+Border\+Color\+Tool\+Changed}}
+\index{active\+Border\+Color\+Tool\+Changed@{active\+Border\+Color\+Tool\+Changed}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{active\+Border\+Color\+Tool\+Changed}{activeBorderColorToolChanged}}
+{\footnotesize\ttfamily void Draw\+::active\+Border\+Color\+Tool\+Changed (\begin{DoxyParamCaption}\item[{Q\+Color}]{border\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_draw_a65056d377baf1383f8af678ba2ed1467}\label{class_draw_a65056d377baf1383f8af678ba2ed1467}} 
+\index{Draw@{Draw}!active\+Drawing\+Tool\+Changed@{active\+Drawing\+Tool\+Changed}}
+\index{active\+Drawing\+Tool\+Changed@{active\+Drawing\+Tool\+Changed}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{active\+Drawing\+Tool\+Changed}{activeDrawingToolChanged}}
+{\footnotesize\ttfamily void Draw\+::active\+Drawing\+Tool\+Changed (\begin{DoxyParamCaption}\item[{\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool}}]{active\+Drawing\+Tool }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_draw_ac28b7e408c687ddfd85e01954109329d}\label{class_draw_ac28b7e408c687ddfd85e01954109329d}} 
+\index{Draw@{Draw}!active\+Fill\+Color\+Tool\+Changed@{active\+Fill\+Color\+Tool\+Changed}}
+\index{active\+Fill\+Color\+Tool\+Changed@{active\+Fill\+Color\+Tool\+Changed}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{active\+Fill\+Color\+Tool\+Changed}{activeFillColorToolChanged}}
+{\footnotesize\ttfamily void Draw\+::active\+Fill\+Color\+Tool\+Changed (\begin{DoxyParamCaption}\item[{Q\+Color}]{fill\+Color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_draw_aa3700cc975270d70dcf18d4160d7f1e6}\label{class_draw_aa3700cc975270d70dcf18d4160d7f1e6}} 
+\index{Draw@{Draw}!get\+Border\+Color@{get\+Border\+Color}}
+\index{get\+Border\+Color@{get\+Border\+Color}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{get\+Border\+Color()}{getBorderColor()}}
+{\footnotesize\ttfamily Q\+Color Draw\+::get\+Border\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\hyperlink{class_draw_aa3700cc975270d70dcf18d4160d7f1e6}{Draw\+::get\+Border\+Color}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_draw_a4be8a242b92fd9d5c42fe9a40810cdb6}\label{class_draw_a4be8a242b92fd9d5c42fe9a40810cdb6}} 
+\index{Draw@{Draw}!get\+Fill\+Color@{get\+Fill\+Color}}
+\index{get\+Fill\+Color@{get\+Fill\+Color}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{get\+Fill\+Color()}{getFillColor()}}
+{\footnotesize\ttfamily Q\+Color Draw\+::get\+Fill\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\hyperlink{class_draw_a4be8a242b92fd9d5c42fe9a40810cdb6}{Draw\+::get\+Fill\+Color}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_draw_a051a72609a03e7b21990060d0f306558}\label{class_draw_a051a72609a03e7b21990060d0f306558}} 
+\index{Draw@{Draw}!getT@{getT}}
+\index{getT@{getT}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{get\+T()}{getT()}}
+{\footnotesize\ttfamily \hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool} Draw\+::getT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\hyperlink{class_draw_a051a72609a03e7b21990060d0f306558}{Draw\+::getT}. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_draw_a960270765705698a6663fdfe93356d17}\label{class_draw_a960270765705698a6663fdfe93356d17}} 
+\index{Draw@{Draw}!set\+Border\+Color@{set\+Border\+Color}}
+\index{set\+Border\+Color@{set\+Border\+Color}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{set\+Border\+Color}{setBorderColor}}
+{\footnotesize\ttfamily void Draw\+::set\+Border\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\hyperlink{class_draw_a960270765705698a6663fdfe93356d17}{Draw\+::set\+Border\+Color}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_draw_a7d802038dd6aa2afe1a8570dbe681136}\label{class_draw_a7d802038dd6aa2afe1a8570dbe681136}} 
+\index{Draw@{Draw}!set\+Fill\+Color@{set\+Fill\+Color}}
+\index{set\+Fill\+Color@{set\+Fill\+Color}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{set\+Fill\+Color}{setFillColor}}
+{\footnotesize\ttfamily void Draw\+::set\+Fill\+Color (\begin{DoxyParamCaption}\item[{const Q\+Color \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\hyperlink{class_draw_a7d802038dd6aa2afe1a8570dbe681136}{Draw\+::set\+Fill\+Color}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_draw_af955c348f57d49fdb861ad82f485b902}\label{class_draw_af955c348f57d49fdb861ad82f485b902}} 
+\index{Draw@{Draw}!setT@{setT}}
+\index{setT@{setT}!Draw@{Draw}}
+\subsubsection{\texorpdfstring{setT}{setT}}
+{\footnotesize\ttfamily void Draw\+::setT (\begin{DoxyParamCaption}\item[{const \hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\hyperlink{class_draw_af955c348f57d49fdb861ad82f485b902}{Draw\+::setT}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{draw_8h}{draw.\+h}\item 
+\hyperlink{draw_8cpp}{draw.\+cpp}\end{DoxyCompactItemize}

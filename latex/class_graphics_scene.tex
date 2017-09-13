@@ -1,0 +1,160 @@
+\hypertarget{class_graphics_scene}{}\section{Graphics\+Scene Class Reference}
+\label{class_graphics_scene}\index{Graphics\+Scene@{Graphics\+Scene}}
+
+
+The \hyperlink{class_graphics_scene}{Graphics\+Scene} class.  
+
+
+
+
+{\ttfamily \#include $<$graphicsscene.\+h$>$}
+
+Inheritance diagram for Graphics\+Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_graphics_scene}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_graphics_scene_a99831b8b30259a344715f95d65427465}{set\+Active\+Drawing\+Tool} (const \hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool} \&active\+Drawing\+Tool)
+\item 
+void \hyperlink{class_graphics_scene_a48f32ef7c39d728cc7c7eb9d21dbffca}{set\+Current\+Map} (\hyperlink{class_graphics_object_map}{Graphics\+Object\+Map} object\+Map)
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_graphics_scene_acfc07dfc3d559fc497cde524dc8ffa66}{new\+Point\+Selected} (Q\+PointF new\+Point)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_graphics_scene_a8e12dad680e5944c7ecce5b399595742}{Graphics\+Scene} (Q\+Object $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_graphics_scene_a8e12dad680e5944c7ecce5b399595742}{Graphics\+Scene\+::\+Graphics\+Scene}. \end{DoxyCompactList}\item 
+\hyperlink{class_graphics_scene_a49bf5569f93aa92ecf99c89c14a0b17d}{$\sim$\+Graphics\+Scene} ()
+\item 
+Q\+PointF \hyperlink{class_graphics_scene_aa341f24da86296d2f06fe485857b54b5}{get\+My\+Point} () const
+\item 
+void \hyperlink{class_graphics_scene_a2853f7e6ab37aeaa25c1dfc2d33eb7af}{set\+My\+Point} (const Q\+PointF \&value)
+\item 
+void \hyperlink{class_graphics_scene_aa6c883ed523812e7aec5018888b72ee1}{create\+Grid} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_graphics_scene_aa6c883ed523812e7aec5018888b72ee1}{Graphics\+Scene\+::create\+Grid}. \end{DoxyCompactList}\item 
+void \hyperlink{class_graphics_scene_ae2cdfb607a8ce680f0ed8c93c519ff01}{mouse\+Press\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$mouse\+Event) override
+\item 
+void \hyperlink{class_graphics_scene_a1bc5a1a813d1ff00bba4e919ed1b7525}{mouse\+Move\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$mouse\+Event) override
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_graphics_scene_a1bc5a1a813d1ff00bba4e919ed1b7525}{Graphics\+Scene\+::mouse\+Move\+Event}. \end{DoxyCompactList}\item 
+void \hyperlink{class_graphics_scene_a5f83aea5c35bad170a3c766ab41bacf5}{mouse\+Release\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$mouse\+Event) override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_graphics_scene}{Graphics\+Scene} class. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graphics_scene_a8e12dad680e5944c7ecce5b399595742}\label{class_graphics_scene_a8e12dad680e5944c7ecce5b399595742}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!Graphics\+Scene@{Graphics\+Scene}}
+\index{Graphics\+Scene@{Graphics\+Scene}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{Graphics\+Scene()}{GraphicsScene()}}
+{\footnotesize\ttfamily Graphics\+Scene\+::\+Graphics\+Scene (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\hyperlink{class_graphics_scene_a8e12dad680e5944c7ecce5b399595742}{Graphics\+Scene\+::\+Graphics\+Scene}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Graphics\+Scene}
+The \hyperlink{class_graphics_scene}{Graphics\+Scene} class manages the user interaction 
+\end{DoxyParagraph}
+\mbox{\Hypertarget{class_graphics_scene_a49bf5569f93aa92ecf99c89c14a0b17d}\label{class_graphics_scene_a49bf5569f93aa92ecf99c89c14a0b17d}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!````~Graphics\+Scene@{$\sim$\+Graphics\+Scene}}
+\index{````~Graphics\+Scene@{$\sim$\+Graphics\+Scene}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{$\sim$\+Graphics\+Scene()}{~GraphicsScene()}}
+{\footnotesize\ttfamily Graphics\+Scene\+::$\sim$\+Graphics\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graphics_scene_aa6c883ed523812e7aec5018888b72ee1}\label{class_graphics_scene_aa6c883ed523812e7aec5018888b72ee1}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!create\+Grid@{create\+Grid}}
+\index{create\+Grid@{create\+Grid}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{create\+Grid()}{createGrid()}}
+{\footnotesize\ttfamily void Graphics\+Scene\+::create\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{class_graphics_scene_aa6c883ed523812e7aec5018888b72ee1}{Graphics\+Scene\+::create\+Grid}. 
+
+\begin{DoxyParagraph}{The grid}
+Generates the grid to mark the units 
+\end{DoxyParagraph}
+\mbox{\Hypertarget{class_graphics_scene_aa341f24da86296d2f06fe485857b54b5}\label{class_graphics_scene_aa341f24da86296d2f06fe485857b54b5}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!get\+My\+Point@{get\+My\+Point}}
+\index{get\+My\+Point@{get\+My\+Point}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{get\+My\+Point()}{getMyPoint()}}
+{\footnotesize\ttfamily Q\+PointF Graphics\+Scene\+::get\+My\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_graphics_scene_a1bc5a1a813d1ff00bba4e919ed1b7525}\label{class_graphics_scene_a1bc5a1a813d1ff00bba4e919ed1b7525}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!mouse\+Move\+Event@{mouse\+Move\+Event}}
+\index{mouse\+Move\+Event@{mouse\+Move\+Event}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{mouse\+Move\+Event()}{mouseMoveEvent()}}
+{\footnotesize\ttfamily void Graphics\+Scene\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{mouse\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+\hyperlink{class_graphics_scene_a1bc5a1a813d1ff00bba4e919ed1b7525}{Graphics\+Scene\+::mouse\+Move\+Event}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mouse\+Event} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyParagraph}{Move}
+This function moves the items when pressed and shows names on hover 
+\end{DoxyParagraph}
+\mbox{\Hypertarget{class_graphics_scene_ae2cdfb607a8ce680f0ed8c93c519ff01}\label{class_graphics_scene_ae2cdfb607a8ce680f0ed8c93c519ff01}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{mouse\+Press\+Event()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Graphics\+Scene\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{mouse\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{class_graphics_scene_a5f83aea5c35bad170a3c766ab41bacf5}\label{class_graphics_scene_a5f83aea5c35bad170a3c766ab41bacf5}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!mouse\+Release\+Event@{mouse\+Release\+Event}}
+\index{mouse\+Release\+Event@{mouse\+Release\+Event}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{mouse\+Release\+Event()}{mouseReleaseEvent()}}
+{\footnotesize\ttfamily void Graphics\+Scene\+::mouse\+Release\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{mouse\+Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+\mbox{\Hypertarget{class_graphics_scene_acfc07dfc3d559fc497cde524dc8ffa66}\label{class_graphics_scene_acfc07dfc3d559fc497cde524dc8ffa66}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!new\+Point\+Selected@{new\+Point\+Selected}}
+\index{new\+Point\+Selected@{new\+Point\+Selected}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{new\+Point\+Selected}{newPointSelected}}
+{\footnotesize\ttfamily void Graphics\+Scene\+::new\+Point\+Selected (\begin{DoxyParamCaption}\item[{Q\+PointF}]{new\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_graphics_scene_a99831b8b30259a344715f95d65427465}\label{class_graphics_scene_a99831b8b30259a344715f95d65427465}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!set\+Active\+Drawing\+Tool@{set\+Active\+Drawing\+Tool}}
+\index{set\+Active\+Drawing\+Tool@{set\+Active\+Drawing\+Tool}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{set\+Active\+Drawing\+Tool}{setActiveDrawingTool}}
+{\footnotesize\ttfamily void Graphics\+Scene\+::set\+Active\+Drawing\+Tool (\begin{DoxyParamCaption}\item[{const \hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool} \&}]{active\+Drawing\+Tool }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_graphics_scene_a48f32ef7c39d728cc7c7eb9d21dbffca}\label{class_graphics_scene_a48f32ef7c39d728cc7c7eb9d21dbffca}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!set\+Current\+Map@{set\+Current\+Map}}
+\index{set\+Current\+Map@{set\+Current\+Map}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{set\+Current\+Map}{setCurrentMap}}
+{\footnotesize\ttfamily void Graphics\+Scene\+::set\+Current\+Map (\begin{DoxyParamCaption}\item[{\hyperlink{class_graphics_object_map}{Graphics\+Object\+Map}}]{object\+Map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_graphics_scene_a2853f7e6ab37aeaa25c1dfc2d33eb7af}\label{class_graphics_scene_a2853f7e6ab37aeaa25c1dfc2d33eb7af}} 
+\index{Graphics\+Scene@{Graphics\+Scene}!set\+My\+Point@{set\+My\+Point}}
+\index{set\+My\+Point@{set\+My\+Point}!Graphics\+Scene@{Graphics\+Scene}}
+\subsubsection{\texorpdfstring{set\+My\+Point()}{setMyPoint()}}
+{\footnotesize\ttfamily void Graphics\+Scene\+::set\+My\+Point (\begin{DoxyParamCaption}\item[{const Q\+PointF \&}]{value }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{graphicsscene_8h}{graphicsscene.\+h}\item 
+\hyperlink{graphicsscene_8cpp}{graphicsscene.\+cpp}\end{DoxyCompactItemize}

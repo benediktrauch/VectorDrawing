@@ -8,6 +8,9 @@ namespace Ui {
 class WelcomeDialog;
 }
 
+/**
+ * @brief The WelcomeDialog class
+ */
 class WelcomeDialog : public QDialog
 {
     Q_OBJECT

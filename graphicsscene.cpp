@@ -10,6 +10,12 @@
 #include <QPainterPath>
 #include <QToolTip>
 
+/**
+ * @brief GraphicsScene::GraphicsScene
+ * @param parent
+ * @par GraphicsScene
+ * The GraphicsScene class manages the user interaction
+ */
 GraphicsScene::GraphicsScene(QObject *parent):
     QGraphicsScene(parent)
 {
@@ -66,6 +72,12 @@ void GraphicsScene::setMyPoint(const QPointF &value)
     MyPoint = value;
 }
 
+/**
+ * @brief GraphicsScene::createGrid
+ * @par The grid
+ * Generates the grid to mark the units
+ */
+
 void GraphicsScene::createGrid()
 {
     QPen pen1;
@@ -96,6 +108,13 @@ QGraphicsItem *GraphicsScene::mouseSelectedItem() const
 {
     return 0;
 }
+
+/**
+ * @brief GraphicsScene::mouseMoveEvent
+ * @param mouseEvent
+ * @par Move
+ * This function moves the items when pressed and shows names on hover
+ */
 void GraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
 
@@ -109,9 +128,10 @@ void GraphicsScene::mouseMoveEvent(QGraphicsSceneMouseEvent *mouseEvent)
         int x = i.value()->graphicsItem()->pos().x();
         int y = i.value()->graphicsItem()->pos().y();
 
+        i.value()->graphicsItem()->setToolTip(i.value()->name());
+
         if(mouseEvent->scenePos().x() >= x && mouseEvent->scenePos().y() >= y){
             if(mouseEvent->scenePos().x() <= (x+width) && mouseEvent->scenePos().y() <= (y+height)){
-                i.value()->graphicsItem()->setToolTip(i.value()->name());
                 if(*mousePressed){
                     i.value()->graphicsItem()->setPos(mouseEvent->scenePos().x()-width/2, mouseEvent->scenePos().y()-height/2);
                 }
@@ -125,6 +145,12 @@ void GraphicsScene::mouseReleaseEvent(QGraphicsSceneMouseEvent *mouseEvent)
     *mousePressed = false;
 }
 
+/**
+ * @brief GraphicsScene::mousePressEvent
+ * @param mouseEvent
+ * @par
+ * Funtion to draw groundplan and lines
+ */
 void GraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
     if (mouseEvent->button() == Qt::LeftButton)

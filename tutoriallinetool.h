@@ -7,6 +7,9 @@ namespace Ui {
 class TutorialLineTool;
 }
 
+/**
+ * @brief The TutorialLineTool class
+ */
 class TutorialLineTool : public QDialog
 {
     Q_OBJECT

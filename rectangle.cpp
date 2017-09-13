@@ -15,7 +15,7 @@ Rectangle::Rectangle(QObject *parent) : GraphicsObject (parent)
 Rectangle::Rectangle(qreal x, qreal y, qreal width, qreal heigth, QColor color1, QColor color2)
 {
     m_graphicsRect = new QGraphicsRectItem();
-    this->setName(QString("rectangle_%1 ").arg(m_rectangleCounter));
+    this->setName(QString("rectangle_%1").arg(m_rectangleCounter));
     m_rectangleCounter++;
 
     m_graphicsRect->setRect(0, 0, heigth, width);

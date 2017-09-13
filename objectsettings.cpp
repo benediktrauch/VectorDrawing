@@ -4,6 +4,9 @@
 #include <iostream>
 #include <QDebug>
 
+/**
+ * @brief ObjectSettings::ObjectSettings
+ */
 ObjectSettings::ObjectSettings(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ObjectSettings)

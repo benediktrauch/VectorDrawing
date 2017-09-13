@@ -1,0 +1,194 @@
+\hypertarget{class_main_window}{}\section{Main\+Window Class Reference}
+\label{class_main_window}\index{Main\+Window@{Main\+Window}}
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+Inheritance diagram for Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_main_window_a91d63c0ae1ebabef78c51f976b763deb}{generate\+New\+UI} (\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool} selected\+Tool)
+\begin{DoxyCompactList}\small\item\em Manipulates UI. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_ae60e9e64c47018bff59b20337b688936}{set\+Active\+Drawing\+Tool} (\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool} active\+Drawing\+Tool)
+\begin{DoxyCompactList}\small\item\em Switching between active and inactive toolbuttons. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_aeeedb3580798df598118c8ba5cc00bdc}{set\+Selected\+Point} (Q\+PointF selected\+Point)
+\item 
+void \hyperlink{class_main_window_a8470c69051b3351a0092a7e5ff9544ae}{selected\+Object\+Name\+Changed} (Q\+String arg1)
+\item 
+void \hyperlink{class_main_window_aafbbe3246ed07db4db9e15a2f8c8e065}{remove\+Current\+Object} ()
+\item 
+void \hyperlink{class_main_window_ab8f93e7d5a8de635dc170392cfe29167}{selected\+Object\+Rotated} (int value)
+\item 
+void \hyperlink{class_main_window_a636bb6145b1b4afa1d5efd1ed7075212}{Object\+Settings\+Close} ()
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_main_window_ac5cc69c34f6beb8f83484514c712fb7e}{active\+Drawing\+Tool\+Changed} (\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool} active\+Drawing\+Tool)
+\item 
+void \hyperlink{class_main_window_abe7ef25ca37ca363b6c7f78ef548c69b}{new\+Object\+Added} (\hyperlink{class_graphics_object_map}{Graphics\+Object\+Map} new\+Object)
+\item 
+void \hyperlink{class_main_window_a07dfbe26675270347f81cf39de3feb7d}{object\+Recieved} (\hyperlink{class_graphics_object}{Graphics\+Object} $\ast$my\+Object)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{Main\+Window} (Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em Creates new Window, binds Scene Object to graphics\+View, sets background-\/color, connetion between tools/colors and mainwindow. \end{DoxyCompactList}\item 
+\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\+Main\+Window} ()
+\item 
+\hyperlink{class_draw}{Draw} $\ast$ \hyperlink{class_main_window_a6532642576d372d482fe65a75f1b3625}{get\+My\+Draw1} () const
+\item 
+Q\+PointF $\ast$ \hyperlink{class_main_window_a534d46f1227675db3c7c0a92eb525159}{get\+My\+Selected\+Point} () const
+\item 
+void \hyperlink{class_main_window_aa19b7a63d9094a1984a4744041feb62a}{set\+My\+Selected\+Point} (Q\+PointF $\ast$value)
+\item 
+\hyperlink{class_graphics_object_map}{Graphics\+Object\+Map} $\ast$ \hyperlink{class_main_window_a03e97a4c381756e59848495721bff9be}{get\+Mygraphicobjects} () const
+\item 
+\hyperlink{class_graphics_object}{Graphics\+Object} $\ast$ \hyperlink{class_main_window_a74ee7691487d90479ea2244f2815d01f}{get\+Selected\+Object} () const
+\item 
+void \hyperlink{class_main_window_a6ec62901bdc71edb074b5b3dc8caf407}{set\+Selected\+Object} (\hyperlink{class_graphics_object}{Graphics\+Object} $\ast$selected\+Object)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}} 
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{Main\+Window()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Creates new Window, binds Scene Object to graphics\+View, sets background-\/color, connetion between tools/colors and mainwindow. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}} 
+\index{Main\+Window@{Main\+Window}!````~Main\+Window@{$\sim$\+Main\+Window}}
+\index{````~Main\+Window@{$\sim$\+Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{$\sim$\+Main\+Window()}{~MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::$\sim$\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_main_window_ac5cc69c34f6beb8f83484514c712fb7e}\label{class_main_window_ac5cc69c34f6beb8f83484514c712fb7e}} 
+\index{Main\+Window@{Main\+Window}!active\+Drawing\+Tool\+Changed@{active\+Drawing\+Tool\+Changed}}
+\index{active\+Drawing\+Tool\+Changed@{active\+Drawing\+Tool\+Changed}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{active\+Drawing\+Tool\+Changed}{activeDrawingToolChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::active\+Drawing\+Tool\+Changed (\begin{DoxyParamCaption}\item[{\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool}}]{active\+Drawing\+Tool }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_main_window_a91d63c0ae1ebabef78c51f976b763deb}\label{class_main_window_a91d63c0ae1ebabef78c51f976b763deb}} 
+\index{Main\+Window@{Main\+Window}!generate\+New\+UI@{generate\+New\+UI}}
+\index{generate\+New\+UI@{generate\+New\+UI}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{generate\+New\+UI}{generateNewUI}}
+{\footnotesize\ttfamily void Main\+Window\+::generate\+New\+UI (\begin{DoxyParamCaption}\item[{\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool}}]{selected\+Tool }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Manipulates UI. 
+
+\mbox{\Hypertarget{class_main_window_a6532642576d372d482fe65a75f1b3625}\label{class_main_window_a6532642576d372d482fe65a75f1b3625}} 
+\index{Main\+Window@{Main\+Window}!get\+My\+Draw1@{get\+My\+Draw1}}
+\index{get\+My\+Draw1@{get\+My\+Draw1}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{get\+My\+Draw1()}{getMyDraw1()}}
+{\footnotesize\ttfamily \hyperlink{class_draw}{Draw} $\ast$ Main\+Window\+::get\+My\+Draw1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_main_window_a03e97a4c381756e59848495721bff9be}\label{class_main_window_a03e97a4c381756e59848495721bff9be}} 
+\index{Main\+Window@{Main\+Window}!get\+Mygraphicobjects@{get\+Mygraphicobjects}}
+\index{get\+Mygraphicobjects@{get\+Mygraphicobjects}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{get\+Mygraphicobjects()}{getMygraphicobjects()}}
+{\footnotesize\ttfamily \hyperlink{class_graphics_object_map}{Graphics\+Object\+Map} $\ast$ Main\+Window\+::get\+Mygraphicobjects (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_main_window_a534d46f1227675db3c7c0a92eb525159}\label{class_main_window_a534d46f1227675db3c7c0a92eb525159}} 
+\index{Main\+Window@{Main\+Window}!get\+My\+Selected\+Point@{get\+My\+Selected\+Point}}
+\index{get\+My\+Selected\+Point@{get\+My\+Selected\+Point}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{get\+My\+Selected\+Point()}{getMySelectedPoint()}}
+{\footnotesize\ttfamily Q\+PointF $\ast$ Main\+Window\+::get\+My\+Selected\+Point (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_main_window_a74ee7691487d90479ea2244f2815d01f}\label{class_main_window_a74ee7691487d90479ea2244f2815d01f}} 
+\index{Main\+Window@{Main\+Window}!get\+Selected\+Object@{get\+Selected\+Object}}
+\index{get\+Selected\+Object@{get\+Selected\+Object}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{get\+Selected\+Object()}{getSelectedObject()}}
+{\footnotesize\ttfamily \hyperlink{class_graphics_object}{Graphics\+Object} $\ast$ Main\+Window\+::get\+Selected\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_main_window_abe7ef25ca37ca363b6c7f78ef548c69b}\label{class_main_window_abe7ef25ca37ca363b6c7f78ef548c69b}} 
+\index{Main\+Window@{Main\+Window}!new\+Object\+Added@{new\+Object\+Added}}
+\index{new\+Object\+Added@{new\+Object\+Added}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{new\+Object\+Added}{newObjectAdded}}
+{\footnotesize\ttfamily void Main\+Window\+::new\+Object\+Added (\begin{DoxyParamCaption}\item[{\hyperlink{class_graphics_object_map}{Graphics\+Object\+Map}}]{new\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_main_window_a07dfbe26675270347f81cf39de3feb7d}\label{class_main_window_a07dfbe26675270347f81cf39de3feb7d}} 
+\index{Main\+Window@{Main\+Window}!object\+Recieved@{object\+Recieved}}
+\index{object\+Recieved@{object\+Recieved}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{object\+Recieved}{objectRecieved}}
+{\footnotesize\ttfamily void Main\+Window\+::object\+Recieved (\begin{DoxyParamCaption}\item[{\hyperlink{class_graphics_object}{Graphics\+Object} $\ast$}]{my\+Object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_main_window_a636bb6145b1b4afa1d5efd1ed7075212}\label{class_main_window_a636bb6145b1b4afa1d5efd1ed7075212}} 
+\index{Main\+Window@{Main\+Window}!Object\+Settings\+Close@{Object\+Settings\+Close}}
+\index{Object\+Settings\+Close@{Object\+Settings\+Close}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{Object\+Settings\+Close}{ObjectSettingsClose}}
+{\footnotesize\ttfamily void Main\+Window\+::\+Object\+Settings\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_main_window_aafbbe3246ed07db4db9e15a2f8c8e065}\label{class_main_window_aafbbe3246ed07db4db9e15a2f8c8e065}} 
+\index{Main\+Window@{Main\+Window}!remove\+Current\+Object@{remove\+Current\+Object}}
+\index{remove\+Current\+Object@{remove\+Current\+Object}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{remove\+Current\+Object}{removeCurrentObject}}
+{\footnotesize\ttfamily void Main\+Window\+::remove\+Current\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_main_window_a8470c69051b3351a0092a7e5ff9544ae}\label{class_main_window_a8470c69051b3351a0092a7e5ff9544ae}} 
+\index{Main\+Window@{Main\+Window}!selected\+Object\+Name\+Changed@{selected\+Object\+Name\+Changed}}
+\index{selected\+Object\+Name\+Changed@{selected\+Object\+Name\+Changed}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{selected\+Object\+Name\+Changed}{selectedObjectNameChanged}}
+{\footnotesize\ttfamily void Main\+Window\+::selected\+Object\+Name\+Changed (\begin{DoxyParamCaption}\item[{Q\+String}]{arg1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_main_window_ab8f93e7d5a8de635dc170392cfe29167}\label{class_main_window_ab8f93e7d5a8de635dc170392cfe29167}} 
+\index{Main\+Window@{Main\+Window}!selected\+Object\+Rotated@{selected\+Object\+Rotated}}
+\index{selected\+Object\+Rotated@{selected\+Object\+Rotated}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{selected\+Object\+Rotated}{selectedObjectRotated}}
+{\footnotesize\ttfamily void Main\+Window\+::selected\+Object\+Rotated (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+\mbox{\Hypertarget{class_main_window_ae60e9e64c47018bff59b20337b688936}\label{class_main_window_ae60e9e64c47018bff59b20337b688936}} 
+\index{Main\+Window@{Main\+Window}!set\+Active\+Drawing\+Tool@{set\+Active\+Drawing\+Tool}}
+\index{set\+Active\+Drawing\+Tool@{set\+Active\+Drawing\+Tool}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{set\+Active\+Drawing\+Tool}{setActiveDrawingTool}}
+{\footnotesize\ttfamily void Main\+Window\+::set\+Active\+Drawing\+Tool (\begin{DoxyParamCaption}\item[{\hyperlink{class_draw_aef97a848de7a634c35c3ce678be88b9b}{Draw\+::\+Tool}}]{active\+Drawing\+Tool }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Switching between active and inactive toolbuttons. 
+
+\mbox{\Hypertarget{class_main_window_aa19b7a63d9094a1984a4744041feb62a}\label{class_main_window_aa19b7a63d9094a1984a4744041feb62a}} 
+\index{Main\+Window@{Main\+Window}!set\+My\+Selected\+Point@{set\+My\+Selected\+Point}}
+\index{set\+My\+Selected\+Point@{set\+My\+Selected\+Point}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{set\+My\+Selected\+Point()}{setMySelectedPoint()}}
+{\footnotesize\ttfamily void Main\+Window\+::set\+My\+Selected\+Point (\begin{DoxyParamCaption}\item[{Q\+PointF $\ast$}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_main_window_a6ec62901bdc71edb074b5b3dc8caf407}\label{class_main_window_a6ec62901bdc71edb074b5b3dc8caf407}} 
+\index{Main\+Window@{Main\+Window}!set\+Selected\+Object@{set\+Selected\+Object}}
+\index{set\+Selected\+Object@{set\+Selected\+Object}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{set\+Selected\+Object()}{setSelectedObject()}}
+{\footnotesize\ttfamily void Main\+Window\+::set\+Selected\+Object (\begin{DoxyParamCaption}\item[{\hyperlink{class_graphics_object}{Graphics\+Object} $\ast$}]{selected\+Object }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_main_window_aeeedb3580798df598118c8ba5cc00bdc}\label{class_main_window_aeeedb3580798df598118c8ba5cc00bdc}} 
+\index{Main\+Window@{Main\+Window}!set\+Selected\+Point@{set\+Selected\+Point}}
+\index{set\+Selected\+Point@{set\+Selected\+Point}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{set\+Selected\+Point}{setSelectedPoint}}
+{\footnotesize\ttfamily void Main\+Window\+::set\+Selected\+Point (\begin{DoxyParamCaption}\item[{Q\+PointF}]{selected\+Point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mainwindow_8h}{mainwindow.\+h}\item 
+\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}\end{DoxyCompactItemize}

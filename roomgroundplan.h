@@ -4,6 +4,9 @@
 #include <QObject>
 #include <QGraphicsItemGroup>
 
+/**
+ * @brief The RoomGroundplan class
+ */
 class RoomGroundplan : public QGraphicsItemGroup
 {
 public:

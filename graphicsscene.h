@@ -8,6 +8,9 @@
 #include "draw.h"
 #include <QToolTip>
 
+/**
+ * @brief The GraphicsScene class
+ */
 class GraphicsScene : public QGraphicsScene
 {
     Q_OBJECT

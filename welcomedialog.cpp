@@ -3,6 +3,10 @@
 #include <iostream>
 #include <QDebug>
 
+/**
+ * @brief WelcomeDialog::WelcomeDialog
+ * @par Window shown on start up
+ */
 WelcomeDialog::WelcomeDialog(QWidget *parent) :
     QDialog(parent), ui(new Ui::WelcomeDialog)
 {

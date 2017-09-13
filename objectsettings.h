@@ -8,6 +8,9 @@ namespace Ui {
 class ObjectSettings;
 }
 
+/**
+ * @brief The ObjectSettings class
+ */
 class ObjectSettings : public QWidget
 {
     Q_OBJECT

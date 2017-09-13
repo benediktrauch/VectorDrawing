@@ -2,7 +2,10 @@
 #include <QGraphicsLineItem>
 #include <QDebug>
 
-
+/**
+ * @brief RoomGroundplan::RoomGroundplan
+ * @par Map for groundplan and lines
+ */
 RoomGroundplan::RoomGroundplan(QGraphicsItem *parent) :
     QGraphicsItemGroup(parent)
 {

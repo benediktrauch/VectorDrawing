@@ -10,6 +10,9 @@
 
 class QGraphicsItem;
 
+/**
+ * @brief The GraphicsObject class
+ */
 class GraphicsObject : public QObject
 {
     Q_OBJECT

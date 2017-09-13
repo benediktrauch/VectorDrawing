@@ -36,11 +36,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->colorToolSelector, SIGNAL(activeFillColorToolChanged(QColor)), myDraw1, SLOT(setFillColor(QColor)));
     connect(ui->colorToolSelector, SIGNAL(activeBorderColorToolChanged(QColor)), myDraw1, SLOT(setBorderColor(QColor)));
 
+    //Connection for graphics scene
     connect(myGraphicsscene, SIGNAL(newPointSelected(QPointF)), this, SLOT(setSelectedPoint(QPointF)));
     connect(this, SIGNAL(activeDrawingToolChanged(Draw::Tool)), myGraphicsscene, SLOT(setActiveDrawingTool(Draw::Tool)));
     connect(this, SIGNAL(newObjectAdded(GraphicsObjectMap)), myGraphicsscene, SLOT(setCurrentMap(GraphicsObjectMap)));
-    connect(this, SIGNAL(objectRecieved(GraphicsObject*)), ui->objectSettingsWidget, SLOT(objectAttributes(GraphicsObject*)));
 
+    //connection for object settings
+    connect(this, SIGNAL(objectRecieved(GraphicsObject*)), ui->objectSettingsWidget, SLOT(objectAttributes(GraphicsObject*)));
     connect(ui->objectSettingsWidget, SIGNAL(myObjectNameChanged(QString)), this, SLOT(selectedObjectNameChanged(QString)));
     connect(ui->objectSettingsWidget, SIGNAL(pb_removeObject()), this, SLOT(removeCurrentObject()));
     connect(ui->objectSettingsWidget, SIGNAL(closeButtonPressed()), this, SLOT(ObjectSettingsClose()));
@@ -73,16 +75,22 @@ void MainWindow::runBorderDebug()
     qDebug() << "Border Color changed to: " << myDraw1->getBorderColor();
 }
 
+/**
+ * @brief MainWindow::getSelectedObject
+ */
 GraphicsObject *MainWindow::getSelectedObject() const
 {
     return m_selectedObject;
 }
 
+/**
+ * @brief MainWindow::setSelectedObject
+ * @param selectedObject
+ */
 void MainWindow::setSelectedObject(GraphicsObject *selectedObject)
 {
     m_selectedObject = selectedObject;
     emit objectRecieved(selectedObject);
-
 }
 
 
@@ -96,6 +104,9 @@ QPointF *MainWindow::getMySelectedPoint() const
     return this->mySelectedPoint;
 }
 
+/**
+ * @brief MainWindow::setMySelectedPoint
+ */
 void MainWindow::setMySelectedPoint(QPointF *value)
 {
     emit newObjectAdded(*mygraphicobjects);
@@ -182,6 +193,11 @@ void MainWindow::setActiveDrawingTool(Draw::Tool activeDrawingTool)
     }
 }
 
+/**
+ * @brief MainWindow::setSelectedPoint
+ * @par setSelectedPoint
+ * Function to set selected point in main window
+ */
 void MainWindow::setSelectedPoint(QPointF selectedPoint)
 {
     MainWindow::setMySelectedPoint(&selectedPoint);
@@ -215,6 +231,11 @@ void MainWindow::selectedObjectNameChanged(QString arg1)
     this->getSelectedObject()->setName(arg1);
 }
 
+/**
+ * @brief MainWindow::removeCurrentObject
+ * @par Delete object
+ * Function to remove a selected object from map and scene
+ */
 void MainWindow::removeCurrentObject()
 {
     QMap<QGraphicsItem *, GraphicsObject *>::const_iterator i = mygraphicobjects->myMap.constBegin();
@@ -234,6 +255,11 @@ void MainWindow::removeCurrentObject()
     ui->objectSettingsWidget->setVisible(false);
 }
 
+/**
+ * @brief MainWindow::selectedObjectRotated
+ * @par Rotate object
+ * Function to rotate a object in a selected angle
+ */
 void MainWindow::selectedObjectRotated(int value)
 {
     int height, width;
@@ -268,6 +294,9 @@ void MainWindow::on_actionSelect_Tool_triggered()
     emit activeDrawingToolChanged(myDraw1->getT());
 }
 
+/**
+ * @brief Manipulates line tool state in menubar
+ */
 void MainWindow::on_actionLine_Tool_triggered()
 {
     ui->actionSelect_Tool->setChecked(false);
@@ -316,6 +345,9 @@ void MainWindow::on_actionExit_triggered()
     exit(0);
 }
 
+/**
+ * @brief Opens help window on button click
+ */
 void MainWindow::on_pushButton_2_clicked()
 {
     tutoriallinetool = new TutorialLineTool();

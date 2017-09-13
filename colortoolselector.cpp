@@ -20,16 +20,6 @@ ColorToolSelector::~ColorToolSelector()
     delete ui;
 }
 
-
-
-//void ColorToolSelector::setFillColor(const QColor &fillColor)
-//{
-//    if (fillColor != m_draw->getFillColor()) {
-//        m_draw->setFillColor(fillColor);
-//        emit activeFillColorToolChanged(m_draw->getFillColor());
-//    }
-//}
-
 void ColorToolSelector::on_pb_border_color_clicked()
 {
     QColor newColor = QColorDialog::getColor(m_draw->getBorderColor(), this, "Select border color", QColorDialog::ShowAlphaChannel);
