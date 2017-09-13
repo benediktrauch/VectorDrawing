@@ -21,13 +21,11 @@ WelcomeDialog::~WelcomeDialog()
 
 void WelcomeDialog::on_buttonBox_accepted()
 {
-    qDebug() << "accept";
     emit showLineTutorialClick();
 }
 
 void WelcomeDialog::on_buttonBox_rejected()
 {
-    qDebug() << "reject";
 }
 
 void WelcomeDialog::openLineTutorial()
