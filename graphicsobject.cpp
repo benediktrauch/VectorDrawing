@@ -39,6 +39,7 @@ QGraphicsItem *GraphicsObject::graphicsItem() const
 {
     return m_graphicsItem;
 }
+
 /**
  * @brief GraphicsObject::posX
  * @return

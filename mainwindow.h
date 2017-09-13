@@ -9,11 +9,9 @@
 #include "graphicsobjectmap.h"
 #include "graphicsscene.h"
 #include "colorbutton.h"
-#include "furniture.h"
-#include "graphicsobject.h"
+    #include "graphicsobject.h"
 #include "objectsettings.h"
 #include "tutoriallinetool.h"
-#include "graphicsitem.h"
 
 namespace Ui {
 class MainWindow;

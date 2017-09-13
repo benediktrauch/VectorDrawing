@@ -5,7 +5,6 @@
 #include <iostream>
 #include <QString>
 #include <draw.h>
-#include "furniture.h"
 #include <QtDebug>
 #include <QColorDialog>
 #include <QColor>
@@ -117,38 +116,21 @@ void MainWindow::runFillDebug()
  */
 void MainWindow::on_pb_AddObject_clicked()
 {
-//    GraphicsObject *tempObj;
-//    if (myDraw1->getT() != Draw::selectTool)
-//    {
-//        if (myDraw1->getT() == Draw::rectTool)
-//        {
-//            tempObj = new Rectangle(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value(), myDraw1->getBorderColor(), myDraw1->getFillColor());
-//        }
-
-//        if (myDraw1->getT() == Draw::circleTool)
-//        {
-//            tempObj = new Circle(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value(), myDraw1->getBorderColor(), myDraw1->getFillColor());
-//        }
-
-//        mygraphicobjects->myMap.insert(tempObj->graphicsItem(), tempObj);
-//        myGraphicsscene->addItem(tempObj->graphicsItem());
-//        //qDebug() << this->getMygraphicobjects()->myMap.last()->name();
-//    }
-    QGraphicsItem *tempObj;
+    GraphicsObject *tempObj;
     if (myDraw1->getT() != Draw::selectTool)
     {
         if (myDraw1->getT() == Draw::rectTool)
         {
-            tempObj = new QGraphicsRectItem(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value());
+            tempObj = new Rectangle(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value(), myDraw1->getBorderColor(), myDraw1->getFillColor());
         }
 
         if (myDraw1->getT() == Draw::circleTool)
         {
-            tempObj = new QGraphicsEllipseItem(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value());
+            tempObj = new Circle(ui->sb_x_pos->value(), ui->sb_y_pos->value(), ui->sb_width->value(), ui->sb_heigth->value(), myDraw1->getBorderColor(), myDraw1->getFillColor());
         }
 
-        mygraphicobjects->myMap.insert(tempObj, tempObj);
-        myGraphicsscene->addItem(tempObj);
+        mygraphicobjects->myMap.insert(tempObj->graphicsItem(), tempObj);
+        myGraphicsscene->addItem(tempObj->graphicsItem());
         //qDebug() << this->getMygraphicobjects()->myMap.last()->name();
     }
     else
@@ -162,7 +144,7 @@ void MainWindow::on_pb_AddObject_clicked()
  */
 void MainWindow::generateNewUI(Draw::Tool selectedTool)
 {
-    if (selectedTool != Draw::selectTool) {
+    if (selectedTool != Draw::selectTool && selectedTool != Draw::lineTool) {
         ui->settingsBox->setEnabled(true);
         ui->pb_AddObject->setEnabled(true);
     } else {
@@ -187,7 +169,7 @@ void MainWindow::setActiveDrawingTool(Draw::Tool activeDrawingTool)
             ui->actionSelect_Tool->setChecked(true);
             break;
         case Draw::lineTool:
-            ui->actionCircle_Tool->setChecked(true);
+            ui->actionLine_Tool->setChecked(true);
             break;
         case Draw::circleTool:
             ui->actionCircle_Tool->setChecked(true);

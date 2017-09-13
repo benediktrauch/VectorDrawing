@@ -11,11 +11,9 @@ INPUT(
 ./release\drawingtoolselector.o
 ./release\colortoolselector.o
 ./release\roomgroundplan.o
-./release\furniture.o
 ./release\objectsettings.o
 ./release\welcomedialog.o
 ./release\tutoriallinetool.o
-./release\graphicsitem.o
 ./release\qrc_selecttool.o
 ./release\moc_mainwindow.o
 ./release\moc_graphicsobject.o
@@ -23,7 +21,6 @@ INPUT(
 ./release\moc_graphicsscene.o
 ./release\moc_drawingtoolselector.o
 ./release\moc_colortoolselector.o
-./release\moc_furniture.o
 ./release\moc_objectsettings.o
 ./release\moc_welcomedialog.o
 ./release\moc_tutoriallinetool.o

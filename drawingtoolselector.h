@@ -9,6 +9,9 @@ namespace Ui {
 class DrawingToolSelector;
 }
 
+/**
+ * @brief The DrawingToolSelector class
+ */
 class DrawingToolSelector : public QWidget
 {
     Q_OBJECT

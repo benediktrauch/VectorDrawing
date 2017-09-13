@@ -8,6 +8,8 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsItem>
 
+class QGraphicsItem;
+
 class GraphicsObject : public QObject
 {
     Q_OBJECT
@@ -32,8 +34,6 @@ public:
     QColor fillColor() const;
     void setFillColor(const QColor &fillColor);
 
-    void hoverEnterEvent(QGraphicsSceneHoverEvent *mouseEvent);
-
     //virtual QString toString() = 0;
 
 signals:
@@ -50,7 +50,6 @@ private:
     QColor m_fillColor; ///< Graphics Object Fill Color
     static unsigned long m_graphicsObjectCounter; ///< Counter for Graphics Objects
     QGraphicsItem *m_graphicsItem;
-
 };
 
 #endif // GRAPHICSOBJECT_H

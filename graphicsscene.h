@@ -5,8 +5,8 @@
 #include "roomgroundplan.h"
 #include "graphicsobject.h"
 #include "graphicsobjectmap.h"
-#include<draw.h>
-
+#include "draw.h"
+#include <QToolTip>
 
 class GraphicsScene : public QGraphicsScene
 {
@@ -35,6 +35,8 @@ private:
     QPointF MyPoint;
     RoomGroundplan* myGroundplan;
     bool* lineToolActive;
+    bool* mousePressed;
+    bool* groundplanFinished;
     QGraphicsItem *mouseSelectedItem() const;
 
     QPainterPath* rectPath;

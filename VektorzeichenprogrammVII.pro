@@ -24,11 +24,9 @@ SOURCES += main.cpp\
     drawingtoolselector.cpp \
     colortoolselector.cpp \
     roomgroundplan.cpp \
-    furniture.cpp \
     objectsettings.cpp \
     welcomedialog.cpp \
-    tutoriallinetool.cpp \
-    graphicsitem.cpp
+    tutoriallinetool.cpp
 
 HEADERS  += mainwindow.h \
     graphicsobject.h \
@@ -41,11 +39,9 @@ HEADERS  += mainwindow.h \
     drawingtoolselector.h \
     colortoolselector.h \
     roomgroundplan.h \
-    furniture.h \
     objectsettings.h \
     welcomedialog.h \
-    tutoriallinetool.h \
-    graphicsitem.h
+    tutoriallinetool.h
 
 FORMS    += mainwindow.ui \
     drawingtoolselector.ui \
